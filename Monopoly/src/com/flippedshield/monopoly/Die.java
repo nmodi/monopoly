@@ -5,14 +5,14 @@ import java.util.Random;
 public class Die {
 	private int numberOfSides;
 	
-	Die(){
+	public Die(){
 		numberOfSides = 6; 
 	}
 	
 	/**
 	 * Die must have at least 2 sides. 2 sided die can act as a coinflip. 
 	 */
-	Die(int numberOfSides) throws IndexOutOfBoundsException{
+	public Die(int numberOfSides) throws IndexOutOfBoundsException{
 		if (numberOfSides > 1){
 			this.numberOfSides = numberOfSides; 
 		} else throw new IndexOutOfBoundsException("A die must have at least 2 sides. This die tried to be created with " + numberOfSides + " sides."); 

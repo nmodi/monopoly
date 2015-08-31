@@ -1,10 +1,12 @@
 package com.flippedshield.monopoly.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.flippedshield.monopoly.Die;
 
 public class DieTest {
 
@@ -17,8 +19,10 @@ public class DieTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testRoll() {
+		Die die = new Die();
+		
+		assertNotNull(die.roll());
 	}
 
 }
