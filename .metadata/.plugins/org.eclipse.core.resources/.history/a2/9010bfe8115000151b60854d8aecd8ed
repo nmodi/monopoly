@@ -1,0 +1,10 @@
+
+public class PropertyCell extends MonopolyCell {
+
+	private int cost; 
+	
+	PropertyCell(String name, int cost){
+		this.name = name; 
+		this.cost = cost; 
+	}
+}

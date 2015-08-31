@@ -1,0 +1,21 @@
+import java.util.Random;
+
+public class Die {
+	private int numberOfSides; 
+	
+	Die(){
+		numberOfSides = 6; 
+	}
+	
+	Die(int numberOfSides) throws Exception{
+		if (numberOfSides > 0){
+			this.numberOfSides = numberOfSides; 
+		} else throw new Exception(); 
+	}
+	
+	public int roll(){
+		Random r = new Random(System.currentTimeMillis()); 
+		return r.nextInt(numberOfSides); 
+	}
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 elements to &apos;Monopoly/src/com.flippedshield.monopoly&apos;&#x0D;&#x0A;- Original project: &apos;Monopoly&apos;&#x0D;&#x0A;- Destination element: &apos;Monopoly/src/com.flippedshield.monopoly&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     PropertyCell.java&#x0D;&#x0A;     Die.java&#x0D;&#x0A;     MonopolyCell.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;com.flippedshield.monopoly" element1="/src&lt;{PropertyCell.java" element2="/src&lt;{Die.java" element3="/src&lt;{MonopolyCell.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1441047355633" units="3" version="1.0"/>
+</session>

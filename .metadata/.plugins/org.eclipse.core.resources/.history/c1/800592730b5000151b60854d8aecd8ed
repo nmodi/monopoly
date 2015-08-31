@@ -1,0 +1,4 @@
+
+public class Die {
+	private numberOfSides = 6; 
+}
