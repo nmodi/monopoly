@@ -52,7 +52,12 @@ public class Die {
 	/*
 	 * === SETTERS & GETTERS ====================================================================
 	 */
-	private void setNumberOfSides(int numberOfSides)
+	public int getNumberOfSides()
+	{
+		return this.numberOfSides;
+	}
+	
+	public void setNumberOfSides(int numberOfSides)
 	{
 		this.numberOfSides = numberOfSides;
 	}

@@ -34,8 +34,7 @@ public class DieTest {
 	@Test
 	public void testRollReturnsValuesBetweenOneAndSix() throws Exception
 	{
-		int sides = 12;
-		final int expectedMax = 6;
+		int sides = 6;
 		int[] roll;
 		
 		die = new Die(sides);
@@ -47,7 +46,7 @@ public class DieTest {
 			if(roll[i] < 0)
 			{
 				fail("Dice " + i + " roll is less than 0");
-			} else if(roll[i] > expectedMax)
+			} else if(roll[i] > die.getNumberOfSides())
 			{
 				fail("Dice " + i + " roll is greater than max");
 			}
