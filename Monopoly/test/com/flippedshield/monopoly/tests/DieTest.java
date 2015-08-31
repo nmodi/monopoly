@@ -1,8 +1,8 @@
 package com.flippedshield.monopoly.tests;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.flippedshield.monopoly.Die;
@@ -34,7 +34,7 @@ public class DieTest {
 	@Test
 	public void testRollReturnsValuesBetweenOneAndSix() throws Exception
 	{
-		int sides = 6;
+		int sides = 12;
 		final int expectedMax = 6;
 		int[] roll;
 		
@@ -42,16 +42,14 @@ public class DieTest {
 		
 		roll = die.roll(2);
 		
-		
-		
 		for(int i = 0; i < roll.length; i++)
 		{
 			if(roll[i] < 0)
 			{
-				throw new Exception("Dice " + i + " roll is less than 0");
+				fail("Dice " + i + " roll is less than 0");
 			} else if(roll[i] > expectedMax)
 			{
-				throw new Exception("Dice " + i + " roll is greater than max");
+				fail("Dice " + i + " roll is greater than max");
 			}
 		}
 	}
