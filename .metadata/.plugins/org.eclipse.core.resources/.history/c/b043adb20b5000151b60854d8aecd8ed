@@ -1,0 +1,17 @@
+
+public class Die {
+	private int numberOfSides; 
+	
+	Die(){
+		numberOfSides = 6; 
+	}
+	
+	Die(int numberOfSides){
+		this.numberOfSides = numberOfSides; 
+	}
+	
+	public int roll(){
+		
+	}
+	
+}

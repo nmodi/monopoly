@@ -1,0 +1,20 @@
+import java.util.Random;
+
+public class Die {
+	private int numberOfSides; 
+	
+	Die(){
+		numberOfSides = 6; 
+	}
+	
+	Die(int numberOfSides){
+		this.numberOfSides = numberOfSides; 
+	}
+	
+	public int roll(){
+		Random r = new Random(System.currentTimeMillis()); 
+		
+		return r.nextInt(numberOfSides); 
+	}
+	
+}

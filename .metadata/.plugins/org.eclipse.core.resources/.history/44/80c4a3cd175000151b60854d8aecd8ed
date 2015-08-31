@@ -1,0 +1,11 @@
+package com.flippedshield.monopoly;
+
+public class Game {
+	
+	ArrayList<MonopolyCell> board = new ArrayList<MonopolyCell>(); 
+
+	public static void main(String[] args) {
+
+	}
+
+}

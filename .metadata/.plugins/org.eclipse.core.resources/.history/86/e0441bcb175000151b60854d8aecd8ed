@@ -1,0 +1,9 @@
+package com.flippedshield.monopoly;
+
+public class Game {
+
+	public static void main(String[] args) {
+
+	}
+
+}

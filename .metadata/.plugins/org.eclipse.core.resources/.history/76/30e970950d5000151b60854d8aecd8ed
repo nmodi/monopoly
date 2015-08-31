@@ -1,0 +1,27 @@
+import java.util.Random;
+
+public class Die {
+	private int numberOfSides;
+	private int lastRolled; 
+	
+	Die(){
+		numberOfSides = 6; 
+	}
+	
+	Die(int numberOfSides) throws IndexOutOfBoundsException{
+		if (numberOfSides > 0){
+			this.numberOfSides = numberOfSides; 
+		} else throw new IndexOutOfBoundsException(); 
+	}
+	
+	public int roll(int numDiceRolled){
+	}
+	
+	public int rollSingle(){ 
+		Random r = new Random(System.currentTimeMillis());
+		int rolled = r.nextInt(numberOfSides) + 1; 
+		return rolled; 
+	}
+	
+	
+}
