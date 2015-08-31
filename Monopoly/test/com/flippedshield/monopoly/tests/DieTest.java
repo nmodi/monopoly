@@ -1,12 +1,13 @@
 package com.flippedshield.monopoly.tests;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.flippedshield.monopoly.Die;
+
 
 public class DieTest {
 	
@@ -38,5 +39,22 @@ public class DieTest {
 	{
 		assertNotNull(die.roll(2));
 	}
-
+	
+	@Test
+	/**
+	 * test that double dice roll returns 2 outputs
+	 */
+	public void testReturnArrayLength(){
+		boolean arrayLengthEqual = (die.roll(2).length == 2);
+		assertTrue(arrayLengthEqual); 		
+	}
+	
+	@Test
+	/**
+	 * test that double dice roll doesn't return 1 output
+	 */
+	public void testReturnArrayLengthFalse(){
+		boolean arrayLengthEqual = (die.roll(2).length == 1);
+		assertFalse(arrayLengthEqual); 		
+	}
 }
