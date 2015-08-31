@@ -9,9 +9,12 @@ import org.junit.Test;
 import com.flippedshield.monopoly.Die;
 
 public class DieTest {
+	
+	private Die die;
 
 	@Before
 	public void setUp() throws Exception {
+		die = new Die();
 	}
 
 	@After
@@ -19,10 +22,21 @@ public class DieTest {
 	}
 
 	@Test
-	public void testRoll() {
-		Die die = new Die();
-		
+	/**
+	 * test no param roll returns populated array
+	 */
+	public void testRollNoParams() 
+	{
 		assertNotNull(die.roll());
+	}
+	
+	@Test
+	/**
+	 * test roll with params returns populated array
+	 */
+	public void testRollWithParams() 
+	{
+		assertNotNull(die.roll(2));
 	}
 
 }
