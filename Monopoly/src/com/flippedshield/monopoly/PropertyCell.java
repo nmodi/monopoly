@@ -1,3 +1,4 @@
+package com.flippedshield.monopoly;
 
 public class PropertyCell extends MonopolyCell {
 

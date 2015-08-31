@@ -1,6 +1,7 @@
+package com.flippedshield.monopoly;
 
 public class MonopolyCell {
-	protected String name; 
+	protected String name;
 	
 	MonopolyCell(){
 		new MonopolyCell("Default cell"); 
