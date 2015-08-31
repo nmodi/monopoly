@@ -17,7 +17,7 @@ public class DieTest {
 	 */
 	public void testRollNoParams() 
 	{
-		die = new Die(6);
+		die = new Die();
 		assertNotNull(die.roll());
 	}
 	
@@ -35,7 +35,7 @@ public class DieTest {
 	public void testRollReturnsValuesBetweenOneAndSix() throws Exception
 	{
 		int sides = 6;
-		int expectedMax = 6;
+		final int expectedMax = 6;
 		int[] roll;
 		
 		die = new Die(sides);
