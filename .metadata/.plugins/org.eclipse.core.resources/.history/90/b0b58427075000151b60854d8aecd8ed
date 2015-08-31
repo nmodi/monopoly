@@ -1,0 +1,5 @@
+
+public class PropertyCell extends MonopolyCell {
+
+	private int cost; 
+}
