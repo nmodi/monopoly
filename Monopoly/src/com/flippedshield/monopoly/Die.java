@@ -6,7 +6,7 @@ public class Die {
 	private int numberOfSides;
 	
 	public Die(){
-		numberOfSides = 6; 
+		setNumberOfSides(6); 
 	}
 	
 	/**
@@ -14,7 +14,7 @@ public class Die {
 	 */
 	public Die(int numberOfSides) throws IndexOutOfBoundsException{
 		if (numberOfSides > 1){
-			this.numberOfSides = numberOfSides; 
+			setNumberOfSides(numberOfSides); 
 		} else throw new IndexOutOfBoundsException("A die must have at least 2 sides. This die tried to be created with " + numberOfSides + " sides."); 
 	}
 	
@@ -47,6 +47,19 @@ public class Die {
 		Random r = new Random(System.currentTimeMillis());
 		int rolled = r.nextInt(numberOfSides) + 1; 
 		return rolled; 
+	}
+	
+	/*
+	 * === SETTERS & GETTERS ====================================================================
+	 */
+	public int getNumberOfSides()
+	{
+		return this.numberOfSides;
+	}
+	
+	public void setNumberOfSides(int numberOfSides)
+	{
+		this.numberOfSides = numberOfSides;
 	}
 
 }
