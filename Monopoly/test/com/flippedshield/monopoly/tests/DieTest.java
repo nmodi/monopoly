@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import com.flippedshield.monopoly.Die;
+import com.flippedshield.monopoly.exceptions.InvalidRollValueException;
 
 public class DieTest {
 	
@@ -32,7 +33,7 @@ public class DieTest {
 	}
 	
 	@Test
-	public void testRollReturnsValuesBetweenOneAndSix() throws Exception
+	public void testRollReturnsValuesBetweenOneAndSix() throws InvalidRollValueException
 	{
 		int sides = 6;
 		int[] roll;
