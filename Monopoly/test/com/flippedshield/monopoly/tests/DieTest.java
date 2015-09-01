@@ -69,6 +69,7 @@ public class DieTest {
 	 * test that double dice roll returns 2 outputs
 	 */
 	public void testReturnArrayLength(){
+		die = new Die(); 
 		boolean arrayLengthEqual = (die.roll(2).length == 2);
 		assertTrue(arrayLengthEqual); 		
 	}
@@ -78,6 +79,7 @@ public class DieTest {
 	 * test that double dice roll doesn't return 1 output
 	 */
 	public void testReturnArrayLengthFalse(){
+		die = new Die(); 
 		boolean arrayLengthEqual = (die.roll(2).length == 1);
 		assertFalse(arrayLengthEqual); 		
 	}
