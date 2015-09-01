@@ -79,6 +79,6 @@ public class DieTest {
 	 */
 	public void testReturnArrayLengthFalse(){
 		boolean arrayLengthEqual = (die.roll(2).length == 1);
-		assertFalse(arrayLengthEqual); 		
+		assertFalse(arrayLengthEqual);	
 	}
 }
