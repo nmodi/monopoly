@@ -22,8 +22,15 @@ public class DieTest {
 	 */
 	public void testRollNoParams() 
 	{
-		die = new Die();
-		assertNotNull(die.roll());
+		try
+		{
+			die = new Die();
+			assertNotNull(die.roll());
+		} catch (IndexOutOfBoundsException e)
+		{
+			//this should never happen because Die is defaulted to 2 sides
+			fail(e.getLocalizedMessage());
+		}
 	}
 	
 	@Test
@@ -43,7 +50,6 @@ public class DieTest {
 		int[] roll;
 		
 		die = new Die(sides);
-		
 		roll = die.roll(2);
 		
 		for(int i = 0; i < roll.length; i++)
