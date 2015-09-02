@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Game {
 	
-	ArrayList<MonopolyCell> board = new ArrayList<MonopolyCell>(); 
+	ArrayList<Space> board = new ArrayList<Space>(); 
 
 	public static void main(String[] args) {
 
