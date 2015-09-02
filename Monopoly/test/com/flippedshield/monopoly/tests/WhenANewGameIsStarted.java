@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.flippedshield.monopoly.Card;
+import com.flippedshield.monopoly.Deed;
 import com.flippedshield.monopoly.Game;
 import com.flippedshield.monopoly.Space;
 
@@ -73,7 +74,7 @@ public class WhenANewGameIsStarted {
 		{
 			for(Card c : cards)
 			{
-				if(c.getName().isEmpty())
+				if(c.getName().isEmpty() || c.getName() == null)
 				{
 					fail("Card " + cards.indexOf(c) + " had an empty name");
 				}
@@ -103,7 +104,7 @@ public class WhenANewGameIsStarted {
 		{
 			for(Card c : cards)
 			{
-				if(c.getName().isEmpty())
+				if(c.getName().isEmpty() || c.getName() == null)
 				{
 					fail("Card " + cards.indexOf(c) + " had an empty name");
 				}
@@ -120,11 +121,20 @@ public class WhenANewGameIsStarted {
 	}
 	
 	@Test
-	public void SpacesShouldHaveNames(){
+	public void SpacesShouldHaveNames()
+	{
 		ArrayList<Space> spaces = game.getBoard().getSpaces();
-		for (Space s : spaces){
-			if (s.getName().isEmpty()){
-				fail("Space #" + spaces.indexOf(s) + " name was empty"); 
+		
+		if(spaces.isEmpty())
+		{
+			fail("Spaces list is empty");
+			
+		} else
+		{
+			for (Space s : spaces){
+				if (s.getName().isEmpty() || s.getName() == null){
+					fail("Space #" + spaces.indexOf(s) + " name was empty"); 
+				}
 			}
 		}
 	}
@@ -135,6 +145,25 @@ public class WhenANewGameIsStarted {
 				game
 					.getBank()
 					.getDeeds()); 
+	}
+	
+	@Test
+	public void bankShouldHaveDeedsWithValidData()
+	{
+		ArrayList<Deed> deeds = game.getBank().getDeeds();
+		
+		if(deeds.isEmpty())
+		{
+			fail("Deeds list is empty");
+			
+		} else
+		{
+			for (Deed d : deeds){
+				if (d.getName().isEmpty() || d.getName() == null){
+					fail("Space #" + deeds.indexOf(d) + " name was empty"); 
+				}
+			}
+		}
 	}
 
 }
