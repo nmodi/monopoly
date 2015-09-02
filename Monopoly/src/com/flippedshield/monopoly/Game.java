@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 public class Game {
 	
-	ArrayList<Space> board = new ArrayList<Space>(); 
-
+	private Board board;
+	private Bank bank;
+	
+	public Game() 
+	{
+		board = new Board();
+		bank = new Bank();
+	}
+	
 	public static void main(String[] args) {
 
 	}
+	
+	public Board getBoard() { return board; }
+	public Bank getBank() { return bank; }
 }
