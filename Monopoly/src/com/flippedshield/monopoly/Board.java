@@ -27,7 +27,7 @@ public class Board {
 		players = new ArrayList<Player>();
 		die = new Die();
 		initBigFunCards();
-		contingencyCards = new ArrayList<Card>();
+		initContingencyCards();
 		try {
 			initSpaces();
 		} catch (IOException e) {
@@ -53,6 +53,9 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Creates big fun card list and fills it with cards
+	 */
 	private void initBigFunCards()
 	{
 		bigFunCards = new ArrayList<Card>();
@@ -63,7 +66,7 @@ public class Board {
 			Object obj = parser.parse(new FileReader(CARD_INFORMATION_JSON));
 			JSONObject jsonObj = (JSONObject) obj;
 			
-			JSONArray cards = (JSONArray) jsonObj.get("cards");
+			JSONArray cards = (JSONArray) jsonObj.get("bigFunCards");
 			
 			Iterator<JSONObject> iterator = cards.iterator();
 			
@@ -78,13 +81,41 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Creates contingency card list and fills it with cards
+	 */
+	private void initContingencyCards()
+	{
+		contingencyCards = new ArrayList<Card>();
+		
+		JSONParser parser = new JSONParser();
+		
+		try {
+			Object obj = parser.parse(new FileReader(CARD_INFORMATION_JSON));
+			JSONObject jsonObj = (JSONObject) obj;
+			
+			JSONArray cards = (JSONArray) jsonObj.get("contingencyCards");
+			
+			Iterator<JSONObject> iterator = cards.iterator();
+			
+			while(iterator.hasNext())
+			{
+				contingencyCards.add(new Card(iterator.next()));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/*
 	 * === GETTERS AND SETTERS  ==================================
 	 */
 	public ArrayList<Player> getPlayers() { return players; }
 	public Die getDie() { return die; }
-	public ArrayList<Card> getChanceCards() { return bigFunCards; }
-	public ArrayList<Card> getCommunityCards() { return contingencyCards; }
+	public ArrayList<Card> getBigFunCards() { return bigFunCards; }
+	public ArrayList<Card> getContingencyCards() { return contingencyCards; }
 	public ArrayList<Space> getSpaces() { return spaces; } 
 
 }

@@ -17,8 +17,6 @@ public class Card {
 	
 	private void parseJsonObject(JSONObject card)
 	{
-		String cardName = (String) card.get("name"); 
-		setName(cardName); 
-		// setName(card.get("name").toString());
+		setName(card.get("name").toString());
 	}
 }

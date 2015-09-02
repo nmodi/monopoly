@@ -52,22 +52,22 @@ public class WhenANewGameIsStarted {
 	}
 	
 	@Test
-	public void ShouldHaveChanceCards()
+	public void ShouldHaveBigFunCards()
 	{
 		assertNotNull(
 				game
 					.getBoard()
-					.getChanceCards());
+					.getBigFunCards());
 	}
 	
 	@Test
-	public void ShouldHaveChanceCardsWithValidData()
+	public void ShouldHaveBigFunCardsWithValidData()
 	{
-		ArrayList<Card> cards = game.getBoard().getChanceCards();
+		ArrayList<Card> cards = game.getBoard().getBigFunCards();
 		
 		if(cards.isEmpty())
 		{
-			fail("Chance cards deck is empty");
+			fail("Big Fun card deck is empty");
 			
 		} else
 		{
@@ -82,12 +82,33 @@ public class WhenANewGameIsStarted {
 	}
 	
 	@Test
-	public void ShouldHaveCommunityCards()
+	public void ShouldHaveContingencyCards()
 	{
 		assertNotNull(
 				game
 					.getBoard()
-					.getCommunityCards());
+					.getContingencyCards());
+	}
+	
+	@Test
+	public void shouldHaveContingencyCardsWithValidData()
+	{
+		ArrayList<Card> cards = game.getBoard().getContingencyCards();
+		
+		if(cards.isEmpty())
+		{
+			fail("Contingency card deck is empty");
+			
+		} else
+		{
+			for(Card c : cards)
+			{
+				if(c.getName().isEmpty())
+				{
+					fail("Card " + cards.indexOf(c) + " had an empty name");
+				}
+			}
+		}
 	}
 	
 	@Test
