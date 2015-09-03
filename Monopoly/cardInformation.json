@@ -1,0 +1,19 @@
+{
+	"bigFunCards":
+	[
+		{ "cardType":"big fun", "name": "IRS Audit", "description":"If you have over $1000 pay $200. If you have under $1000 collect $100", "effectType":"irs", "payAmt":200, "collectAmt":100, "payThreshold":1000, "collectThreshold":1000 },
+		{ "cardType":"big fun", "name": "4:05 PM!", "description":"You have been towed", "effectType":"pay", "payAmt":50 },
+		{ "cardType":"big fun", "name": "Property Tax!", "description":"Pay $25 for each City Block owned, $100 for each Key to the City.", "effectType":"tax", "payAmt":25, "payAmt2":100 },
+		{ "cardType":"big fun", "name": "Vacation", "description":"Collect $50 from each player", "effectType":"collect", "collectAmt":50 },
+		{ "cardType":"big fun", "name": "Bank Error", "description":"Collect $150", "effectType":"collect", "collectAmt":150 },
+		{ "cardType":"big fun", "name": "Turn Off The Alarm", "description":"Lose one turn", "effectType":"turn", "turnAmt":-1 },
+		{ "cardType":"big fun", "name": "Play The Lottery", "description":"Place any amount up to $50 in the center of the board for tickets. Choose a number between 2 and 12. If you roll your chosen number, collect 10 times the amount you placed in the center", "effectType":"lottery", "payAmt":50, "rangeLower":2, "rangeUpper":12, "collectMulitplier":10 },
+		{ "cardType":"big fun", "name": "Detour!", "description":"Get out of Traffic Jam FREE", "effectType":"jailFree" },
+		{ "cardType":"big fun", "name": "State Fair of Texas", "description":"Advance token to Fair Park", "effectType":"move", "moveTo":"Fair Park" }
+	],
+	"contingencyCards":
+	[
+		{ "cardType":"contingency", "name": "You have been elected", "description":"Pay $20 to every person", "effectType":"pay", "payAmt":20, "recipient":"everyone" },
+		{ "cardType":"contingency", "name": "Crowned!", "description":"You are now Miss Dallas.", "effectType":"collect", "collectAmt":100 }
+	]
+}

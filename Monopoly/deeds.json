@@ -1,0 +1,65 @@
+{
+	"deeds":
+	[
+		{
+			"name":"Cotton Dome", 
+		 	"owner":"Bank", 
+		 	"color":"red",
+		 	"mortgage":80,
+			"blockCost":25,
+ 			"keyCost":100,
+			"baseRent":100, 
+			"oneBlock":150, 
+			"twoBlock":200, 
+			"threeBlock":300, 
+			"fourBlock":350, 
+			"keyToCity":400
+		},
+		
+		{
+			"name":"Dallas Zoo", 
+		 	"owner":"Bank", 
+		 	"color":"yellow",
+		 	"mortgage":80,
+			"blockCost":25,
+ 			"keyCost":100,
+			"baseRent":100, 
+			"oneBlock":150, 
+			"twoBlock":200, 
+			"threeBlock":300, 
+			"fourBlock":350, 
+			"keyToCity":400
+		},
+		
+		{
+			"name":"AT&T Stadium", 
+		 	"owner":"Bank", 
+		 	"color":"black",
+		 	"mortgage":80,
+			"blockCost":25,
+ 			"keyCost":100,
+			"baseRent":100, 
+			"oneBlock":150, 
+			"twoBlock":200, 
+			"threeBlock":300, 
+			"fourBlock":350, 
+			"keyToCity":400
+		},
+		
+		{
+			"name":"McKinney Avenue", 
+		 	"owner":"Bank", 
+		 	"color":"black",
+		 	"mortgage":80,
+			"blockCost":25,
+ 			"keyCost":100,
+			"baseRent":100, 
+			"oneBlock":150, 
+			"twoBlock":200, 
+			"threeBlock":300, 
+			"fourBlock":350, 
+			"keyToCity":400
+		},
+		
+	]
+}

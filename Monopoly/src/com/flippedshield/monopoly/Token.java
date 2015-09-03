@@ -8,46 +8,41 @@ package com.flippedshield.monopoly;
 public abstract class Token {
 	
 	private int position;
-	private TokenSymbol symbol;
+	private String name; 
+	private char symbol;
 	
+
 	/*
 	 * === GETTERS AND SETTERS ======================================
 	 */
+	public void setName(String name) { this.name = name; } 
+	public String getName() { return name; } 
 	public int getPosition() { return this.position; }
-	
-	public void setPosition(int position)
-	{
-		this.position = position;
-	}
-	
-	public TokenSymbol getSymbol() { return this.symbol; }
-	
-	public void setSymbol(TokenSymbol symbol)
-	{
-		this.symbol = symbol;
-	}
+	public void setPosition(int position) { this.position = position; }
+	public char getSymbol() { return this.symbol; }
+	public void setSymbol(char symbol) { this.symbol = symbol; }
 	
 }
-
-/**
- * Defines the token types and their ASCII art.
- * Later the ASCII art string can be changed to an image/img src or something.
- * @author plk4578
- *
- */
-enum TokenSymbol
-{
-	CITY_BLOCK("X"),
-	KEY_TO_THE_CITY("p---k"),
-	DOG("BARK"),
-	HAND("HAND"),
-	STAR("STAR"),
-	HAT("HAT");
-	
-	String symbol;
-	
-	private TokenSymbol(String symbol)
-	{
-		this.symbol = symbol;
-	}
-}
+//
+///**
+// * Defines the token types and their ASCII art.
+// * Later the ASCII art string can be changed to an image/img src or something.
+// * @author plk4578
+// *
+// */
+//enum TokenSymbol
+//{
+//	CITY_BLOCK("X"),
+//	KEY_TO_THE_CITY("p---k"),
+//	DOG("BARK"),
+//	HAND("HAND"),
+//	STAR("STAR"),
+//	HAT("HAT");
+//	
+//	String symbol;
+//	
+//	private TokenSymbol(String symbol)
+//	{
+//		this.symbol = symbol;
+//	}
+//}

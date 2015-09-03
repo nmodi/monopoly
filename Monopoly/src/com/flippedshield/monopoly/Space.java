@@ -8,7 +8,11 @@ public class Space {
 	}
 	
 	Space(String name){
-		this.name = name; 
+		setName(name); 
 	}
+
 	
+	public void setName(String name) { this.name = name; } 
+	public String getName() { return name; }
+
 }
