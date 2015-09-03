@@ -1,5 +1,5 @@
 package com.flippedshield.monopoly;
 
-public interface AbstractFeeSpace {
+public interface Improvable {
 
 }

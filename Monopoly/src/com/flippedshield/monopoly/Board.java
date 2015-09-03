@@ -14,9 +14,7 @@ import org.json.simple.parser.ParseException;
 public class Board {
 //	private static Board instance; 
 	
-	private static final String PROPERTIES_FILE = "properties.txt"; 
 	private static final String CARD_INFORMATION_JSON = "cardInformation.json"; 
-	private static final String DEEDS_INFO_JSON = "deeds.json";
 	private static final String TOKENS_JSON = "tokens.json";
 	private static final String PLAYERS_JSON = "players.json";
 	

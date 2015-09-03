@@ -2,9 +2,8 @@ package com.flippedshield.monopoly;
 
 import java.util.ArrayList;
 
-public class PropertySpace extends Space implements AbstractPropertySpace, Ownable {
+public class PropertySpace extends Space implements Improvable, Ownable {
 
-	private int cost;
 	private ArrayList<BuildingToken> buildingTokenList;
 	private Deed deed;
 	
