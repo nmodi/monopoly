@@ -165,5 +165,10 @@ public class WhenANewGameIsStarted {
 			}
 		}
 	}
+	
+	@Test 
+	public void tokensShouldHaveNamesAndSymbols(){
+		game.getBoard().getTokens(); 
+	}
 
 }

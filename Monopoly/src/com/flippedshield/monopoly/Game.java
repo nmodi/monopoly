@@ -7,7 +7,6 @@ public class Game {
 	private Board board;
 	private Bank bank;
 	
-	public Game() 
 	{
 		board = new Board();
 		bank = new Bank();
