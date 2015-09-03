@@ -1,10 +1,26 @@
 package com.flippedshield.monopoly;
 
+import org.json.simple.JSONObject;
+
 public class Player {
 
 	private String name;
 	private int lastTwoRolls;
 	private int wealth;
+	
+	private static final int DEFAULT_STARTING_WEALTH = 500; 
+	
+	/**
+	 * Creates player using JSON player object
+	 * @param name
+	 */
+	public Player(JSONObject playerObj)
+	{
+		String name = playerObj.get("name").toString();
+		setName(name);
+		initLastTwoRolls();
+		setWealth(DEFAULT_STARTING_WEALTH);
+	}
 	
 	/**
 	 * Creates player with name and wealth
@@ -14,7 +30,7 @@ public class Player {
 	{
 		setName(name);
 		initLastTwoRolls();
-		setWealth(wealth);
+		setWealth(DEFAULT_STARTING_WEALTH);
 	}
 	
 	/**
@@ -25,7 +41,7 @@ public class Player {
 	{
 		setName(name);
 		initLastTwoRolls();
-		setWealth(wealth);
+		setWealth(DEFAULT_STARTING_WEALTH);
 	}
 	
 	private void initLastTwoRolls()

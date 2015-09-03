@@ -41,11 +41,19 @@ public class Board {
 	
 	private void initPlayers()
 	{
-		players = new ArrayList<Player>();
-		
-		players.add(new Player("Nilay", 200));
-		players.add(new Player("Jacob", 200));
-		players.add(new Player("Derek", 200));
+		players = new ArrayList<Player>(); 
+		JSONParser parser = new JSONParser(); 
+		try {
+			Object obj = parser.parse(new FileReader(PLAYERS_JSON)); 
+			JSONObject jsonObj = (JSONObject) obj; 
+			JSONArray jsonPlayers = (JSONArray) jsonObj.get("players"); 
+			Iterator<JSONObject> iterator = jsonPlayers.iterator(); 
+			while(iterator.hasNext()){
+				players.add(new Player(iterator.next())); 
+			} 
+			} catch (IOException | ParseException e){
+				e.printStackTrace();
+		}
 	}
 	
 	/**

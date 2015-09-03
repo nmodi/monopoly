@@ -6,7 +6,6 @@
 	"utilities":
 	[
 		{ "cardType":"contingency", "name": "You have been elected", "description":"Pay $20 to every person", "effectType":"pay", "payAmt":20, "recipient":"everyone" },
-
 	]
 	"roads":
 		{	}, 
