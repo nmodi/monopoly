@@ -1,12 +1,11 @@
-{
-	"properties":
-	[
-		{ "cardType":"big fun", "name": "Detour!", "description":"Get out of Traffic Jam FREE", "effectType":"jailFree" },
-	],
-	"utilities":
-	[
-		{ "cardType":"contingency", "name": "You have been elected", "description":"Pay $20 to every person", "effectType":"pay", "payAmt":20, "recipient":"everyone" },
-	]
-	"roads":
-		{	}, 
-}
+-plano office
+-san antonio home office
+-addison 
+-dallas
+-austin
+-houston 
+-okc 
+-frisco
+-richardson
+-mckinney
+-lewisville
