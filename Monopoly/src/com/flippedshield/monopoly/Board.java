@@ -90,9 +90,10 @@ public class Board {
 		
 		
 		spaces = new ArrayList<Space>(40);
-		ArrayList<PropertySpace> properties = new ArrayList<PropertySpace>(28);
+		ArrayList<Deed> properties = Game.getBank().getDeeds();
 		ArrayList<FeeSpace> feeSpaces = new ArrayList<FeeSpace>(2);
 		
+		/*
 		JSONParser parser = new JSONParser();
 		JSONObject space;
 		
@@ -119,6 +120,30 @@ public class Board {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		*/
+		int i = 0;
+		spaces.add(new GoSpace("Go Space"));
+		spaces.add(new PropertySpace(properties.get(i++))); 
+		spaces.add(new CardSpace("Contingency"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new FeeSpace("Tax"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new CardSpace("Big Fun"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		
+		
+//		for(i = i; i < 7; i++)
+//		{
+//			spaces.add(new PropertySpace(properties.get(i)));
+//		}
+		
+		for(Space s : spaces)
+		{
+			System.out.println(" + " + s.getName());
+		}
+		
 		
 	}
 	

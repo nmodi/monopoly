@@ -43,7 +43,7 @@ public class WhenSpacesAreSetUp {
 		} else
 		{
 			for (Space s : spaces){
-				if (s.getName().isEmpty() || s.getName() == null){
+				if (s.getName() == null || s.getName() == null){
 					fail("Space #" + spaces.indexOf(s) + " name was empty"); 
 				}
 			}

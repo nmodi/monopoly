@@ -63,5 +63,5 @@ public class Game {
 
 	public static void endGame() { gameWon = true; }
 	public Board getBoard() { return board; }
-	public Bank getBank() { return bank; }
+	public static Bank getBank() { return bank; }
 }

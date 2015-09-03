@@ -17,7 +17,9 @@ public class Bank {
 	
 	private static ArrayList<Deed> deeds; 
 	
-	public Bank() {} 
+	public Bank() {
+		initDeeds();
+	} 
 	
 	public static void initBank(){
 		initDeeds();	
