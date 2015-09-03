@@ -9,10 +9,8 @@ public class PropertySpace extends Space implements AbstractPropertySpace, Ownab
 	private Deed deed;
 	
 	public PropertySpace(Deed deed){
-//		this.name = name; 
-//		this.cost = cost; 
+		super(deed.getName());
 		setDeed(deed);
-		super.setName(deed.getName());
 		
 		buildingTokenList = new ArrayList<BuildingToken>();
 	}
@@ -24,5 +22,15 @@ public class PropertySpace extends Space implements AbstractPropertySpace, Ownab
 	public void setDeed(Deed deed)
 	{
 		this.deed = deed;
+	}
+
+	@Override
+	public void onLanding() {
+		
+	}
+
+	@Override
+	public void onLeaving() {
+		
 	}
 }
