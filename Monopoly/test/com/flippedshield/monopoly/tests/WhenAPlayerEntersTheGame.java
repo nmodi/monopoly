@@ -31,6 +31,7 @@ public class WhenAPlayerEntersTheGame {
 		for(Player p : players)
 		{
 			name = p.getName();
+			System.out.println(name);
 			assertTrue("Player " + players.indexOf(p) + " had no name", !p.getName().isEmpty());
 		}
 	}

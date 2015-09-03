@@ -1,9 +1,0 @@
-
-public class Die {
-	private int numberOfSides; 
-	
-	Die(){
-		numberOfSides = 6; 
-	}
-	
-}

@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.flippedshield.monopoly.Card;
 import com.flippedshield.monopoly.Deed;
 import com.flippedshield.monopoly.Game;
+import com.flippedshield.monopoly.PlayerToken;
 import com.flippedshield.monopoly.Space;
 
 public class WhenANewGameIsStarted {
@@ -172,7 +173,15 @@ public class WhenANewGameIsStarted {
 	
 	@Test 
 	public void tokensShouldHaveNamesAndSymbols(){
-		game.getBoard().getTokens(); 
+		ArrayList<PlayerToken> playerTokens = game.getBoard().getTokens(); 
+		if (playerTokens.isEmpty()){
+			fail("player tokens list was empty."); 
+		}
+		for (PlayerToken pt : playerTokens){
+			if (pt.getName().isEmpty() || pt.getName() == null){
+				fail("Token #" + playerTokens.indexOf(pt) + " name was empty"); 
+			}
+		}
 	}
 
 }

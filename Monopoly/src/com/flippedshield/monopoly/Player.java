@@ -1,6 +1,9 @@
 package com.flippedshield.monopoly;
 
+
 import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
 
 public class Player {
 	
@@ -13,6 +16,20 @@ public class Player {
 	private int jailCards;
 	private ArrayList<Deed> ownedDeeds;
 	
+	private static final int DEFAULT_STARTING_WEALTH = 500; 
+	
+	/**
+	 * Creates player using JSON player object
+	 * @param name
+	 */
+	public Player(JSONObject playerObj)
+	{
+		String name = playerObj.get("name").toString();
+		setName(name);
+		initLastTwoRolls();
+		setWealth(DEFAULT_STARTING_WEALTH);
+	}
+	
 	/**
 	 * Creates player with name and wealth
 	 * @param name
@@ -22,7 +39,7 @@ public class Player {
 		setName(name);
 		initLastTwoRolls();
 		initOwnedDeedsList();
-		setWealth(wealth);
+		setWealth(DEFAULT_STARTING_WEALTH);
 		setJailCards(STARTING_JAIL_CARDS);
 	}
 	
@@ -34,7 +51,7 @@ public class Player {
 	{
 		setName(name);
 		initLastTwoRolls();
-		setWealth(wealth);
+		setWealth(DEFAULT_STARTING_WEALTH);
 	}
 	
 	public void initOwnedDeedsList()
