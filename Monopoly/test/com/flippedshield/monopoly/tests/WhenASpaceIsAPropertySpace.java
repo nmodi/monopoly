@@ -18,6 +18,7 @@ public class WhenASpaceIsAPropertySpace {
 	private Game game;
 	private Board board;
 	private ArrayList<Space> spaces;
+	private ArrayList<PropertySpace> properties;
 
 	@Before
 	public void setUp() throws Exception 
@@ -25,12 +26,8 @@ public class WhenASpaceIsAPropertySpace {
 		game = new Game();
 		board = game.getBoard();
 		spaces = board.getSpaces();
-	}
-
-	@Test
-	public void shouldHaveAnEmptyBuildingTokenList() {
-		PropertySpace property;
-		ArrayList<PropertySpace> properties = new ArrayList<PropertySpace>();
+		
+		properties = new ArrayList<PropertySpace>();
 		
 		for(Space s : spaces)
 		{
@@ -39,6 +36,12 @@ public class WhenASpaceIsAPropertySpace {
 				properties.add((PropertySpace) s);
 			}
 		}
+	}
+
+	@Test
+	public void shouldHaveAnEmptyBuildingTokenList() {
+		PropertySpace property;
+		
 		
 		for(PropertySpace p : properties)
 		{
