@@ -6,4 +6,8 @@ public class BankerPlayer extends Player implements Banker {
 		super(name, lastTwoRolls);
 	}
 
+	public BankerPlayer(String name) {
+		super(name);
+	}
+
 }

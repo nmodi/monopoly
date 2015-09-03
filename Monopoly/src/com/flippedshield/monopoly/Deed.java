@@ -24,7 +24,7 @@ public class Deed {
 			long keyCost, long baseRent, long oneBlock, long twoBlock, long threeBlock, 
 			long fourBlock, long keyToCity)
 	{
-		setOwner(new Player(owner));
+		setOwner(owner);
 		isMortgaged(false);
 		setName(name);
 		setColor(color);
@@ -38,12 +38,24 @@ public class Deed {
 		setFourBlock(fourBlock);
 		setKeyToCity(keyToCity);
 	}
+	
+	public Deed()
+	{
+		
+	}
 
 	public Player getOwner() { return owner; }
 	
-	public void setOwner(Player owner)
+	public void setOwner(String owner)
 	{
-		this.owner = owner;
+		if(owner.equalsIgnoreCase("bank"))
+		{
+			this.owner = new BankerPlayer(owner);
+		} else
+		{
+			this.owner = new Player(owner);
+		}
+		
 	}
 	
 	public boolean isMortgaged() { return isMortgaged; }
