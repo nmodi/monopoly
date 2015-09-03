@@ -15,7 +15,7 @@ public class PlayerToken extends Token {
 	public PlayerToken(JSONObject next) {
 		setImprisonment(false); 
 		setName(next.get("name").toString());
-		setSymbol(next.get("symbol").toString().charAt(0));
+		setSymbol(next.get("symbol").toString());
 	}
 
 	/*
