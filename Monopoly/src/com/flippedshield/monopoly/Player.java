@@ -7,13 +7,15 @@ import org.json.simple.JSONObject;
 
 public class Player {
 	
-	private static final int STARTING_ROLL_HISTORY = 00;
+	private static final int STARTING_ROLL_HISTORY = 0;
+	private static final int STARTING_JAIL_HISTORY = 0;
 	private static final int STARTING_JAIL_CARDS = 0;
 
 	private String name;
-	private int lastTwoRolls;
+	private int consecutiveDoubles;
 	private int wealth;
 	private int jailCards;
+	private int turnsInJail; 
 	private ArrayList<Deed> ownedDeeds;
 	private PlayerToken token; 
 	
@@ -27,7 +29,7 @@ public class Player {
 	{
 		String name = playerObj.get("name").toString();
 		setName(name);
-		initLastTwoRolls();
+		initDoubleCount();
 		setWealth(DEFAULT_STARTING_WEALTH);
 		initOwnedDeedsList(); 
 		System.out.println(name + " has joined the game with $" + wealth);
@@ -40,7 +42,7 @@ public class Player {
 	public Player(String name, int wealth)
 	{
 		setName(name);
-		initLastTwoRolls();
+		initDoubleCount();
 		initOwnedDeedsList();
 		setWealth(DEFAULT_STARTING_WEALTH);
 		setJailCards(STARTING_JAIL_CARDS);
@@ -53,7 +55,7 @@ public class Player {
 	public Player(String name)
 	{
 		setName(name);
-		initLastTwoRolls();
+		initDoubleCount();
 		setWealth(DEFAULT_STARTING_WEALTH);
 	}
 	
@@ -62,9 +64,9 @@ public class Player {
 		ownedDeeds = new ArrayList<Deed>();
 	}
 	
-	private void initLastTwoRolls()
+	private void initDoubleCount()
 	{
-		setLastTwoRolls(STARTING_ROLL_HISTORY);
+		resetDoubleCount(); 
 	}
 	
 	public String getName() { return name; }
@@ -73,11 +75,11 @@ public class Player {
 		this.name = name;
 	}
 	
-	public int getLastTwoRolls() { return lastTwoRolls; }
+	public int getconsecutiveDoubleCount() { return consecutiveDoubles; }
 	
-	public void setLastTwoRolls(int lastTwoRolls) 
+	public void incrementDoubleCount() 
 	{
-		this.lastTwoRolls = lastTwoRolls;
+		consecutiveDoubles++; 
 	}
 
 	public int getWealth() { return wealth; }
@@ -112,5 +114,38 @@ public class Player {
 	public void setPlayerToken(PlayerToken newToken) {
 		this.token = newToken; 
 		System.out.println(name + " has the " + token.getName() + " token! " + token.getSymbol());
+	}
+
+	public boolean rolledDoubles() {
+		switch (getconsecutiveDoubleCount()){
+		case 0: 
+		case 1:	incrementDoubleCount();
+				break; 
+		case 2: resetDoubleCount(); 
+				return true; 
+		default: System.out.println("this should never happen");
+		}
+		
+		return false; 		
+	}
+
+	public void resetDoubleCount() {
+		consecutiveDoubles = STARTING_ROLL_HISTORY; 
+	}
+	
+	public int getTurnsInJail() {
+		return turnsInJail; 
+	}
+	
+	public void incrementTurnsInJail() {
+		turnsInJail++; 
+	}
+	
+	public void resetTurnsInJail() {
+		setTurnsInJail(STARTING_JAIL_HISTORY); 
+	}
+	
+	private void setTurnsInJail(int turns) {
+		turnsInJail = turns; 
 	}
 }

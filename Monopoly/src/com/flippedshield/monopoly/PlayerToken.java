@@ -21,10 +21,31 @@ public class PlayerToken extends Token {
 	/*
 	 * === GETTERS AND SETTERS ======================================
 	 */
-	public boolean getImprisonmentStatus() { return this.isImprisoned; }
+	public boolean checkIfJailed() { return this.isImprisoned; }
 	
 	public void setImprisonment(boolean isImprisoned)
 	{
 		this.isImprisoned = isImprisoned;
+	}
+
+	/**
+	 * Moves the player by a given number of spaces
+	 * @param magnitude 
+	 * @return Returns true if the player passes go, returns false otherwise. 
+	 */
+	public boolean incrementPosition(int magnitude) {
+		int newPosition = getPosition() + magnitude; 
+		if (Game.getDebugMode()){			
+			System.out.println("magnitude " + magnitude);
+			System.out.println("new position (nonmod)" + newPosition);
+		}
+		if (newPosition > Board.TOTAL_NUMBER_OF_SPACES) {
+			newPosition = newPosition % Board.TOTAL_NUMBER_OF_SPACES; 
+			if (Game.getDebugMode()){			
+				System.out.println("new position (mod)" + newPosition);
+			}
+		}
+		setPosition(newPosition); 
+		return false; 
 	}
 }

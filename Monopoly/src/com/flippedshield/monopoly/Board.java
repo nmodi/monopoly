@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
 public class Board {
 //	private static Board instance; 
 	
-	private final String PROPERTIES_FILE = "properties.txt"; 
+//	private final String PROPERTIES_FILE = "properties.txt"; 
 	private final String CARD_INFORMATION_JSON = "cardInformation.json"; 
 	private final String TOKENS_JSON = "tokens.json";
 	private final String PLAYERS_JSON = "players.json";
@@ -27,6 +27,8 @@ public class Board {
 	private ArrayList<Card> contingencyCards;
 	private ArrayList<Space> spaces; 
 	private ArrayList<PlayerToken> playerTokens;
+	
+	public static int TOTAL_NUMBER_OF_SPACES; 
 	
 	public Board() {
 		initPlayers();
@@ -101,7 +103,7 @@ public class Board {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+		TOTAL_NUMBER_OF_SPACES = spaces.size(); 
 	}
 	
 	/**

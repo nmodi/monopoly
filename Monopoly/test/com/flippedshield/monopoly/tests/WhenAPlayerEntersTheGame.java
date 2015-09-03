@@ -43,7 +43,7 @@ public class WhenAPlayerEntersTheGame {
 		
 		for(Player p : players)
 		{
-			lastTwoRolls = p.getLastTwoRolls();
+			lastTwoRolls = p.getconsecutiveDoubleCount();
 			assertTrue("Player " + players.indexOf(p) + " had a bad roll history", lastTwoRolls >= 0);
 		}
 	}
