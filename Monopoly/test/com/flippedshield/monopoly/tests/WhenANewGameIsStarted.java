@@ -1,6 +1,7 @@
 package com.flippedshield.monopoly.tests;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class WhenANewGameIsStarted {
 	private Game game;
 	
 	@Before
-	public void startup()
+	public void setUp() throws Exception
 	{
 		game = new Game();
 	}
@@ -151,6 +152,7 @@ public class WhenANewGameIsStarted {
 	public void bankShouldHaveDeedsWithValidData()
 	{
 		ArrayList<Deed> deeds = game.getBank().getDeeds();
+		boolean isValid = false;
 		
 		if(deeds.isEmpty())
 		{
@@ -159,9 +161,11 @@ public class WhenANewGameIsStarted {
 		} else
 		{
 			for (Deed d : deeds){
-				if (d.getName().isEmpty() || d.getName() == null){
-					fail("Space #" + deeds.indexOf(d) + " name was empty"); 
+				if(!d.getName().isEmpty() && d.getOwner() != null && d.getMortgage() > 0 && d.getBaseRent() > 0)
+				{
+					isValid = true;
 				}
+				assertTrue("Deed #" + deeds.indexOf(d) + " is not valid", isValid);
 			}
 		}
 	}
