@@ -12,7 +12,6 @@ public class PropertySpace extends Space implements AbstractPropertySpace, Ownab
 //		this.name = name; 
 //		this.cost = cost; 
 		this.deed = deed;
-		System.out.println(deed.getName());
 		super.setName(deed.getName());
 	}
 	
