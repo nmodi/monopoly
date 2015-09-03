@@ -15,12 +15,15 @@ public class Board {
 	
 	private static final String PROPERTIES_FILE = "properties.txt"; 
 	private static final String CARD_INFORMATION_JSON = "cardInformation.json"; 
+	private static final String TOKENS_JSON = "tokens.json";
+	private static final String PLAYERS_JSON = "players.json";
 	
 	private ArrayList<Player> players;
 	private Die die;
 	private ArrayList<Card> bigFunCards;
 	private ArrayList<Card> contingencyCards;
 	private ArrayList<Space> spaces; 
+	private ArrayList<PlayerToken> playerTokens; 
 	
 	public Board()
 	{
@@ -33,6 +36,7 @@ public class Board {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
+		initTokens(); 
 	}
 	
 	private void initPlayers()
@@ -118,6 +122,25 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Creates list of Tokens and initializes it from TOKENS_JSON file 
+	 */
+	private void initTokens(){
+		playerTokens = new ArrayList<PlayerToken>(); 
+		JSONParser parser = new JSONParser(); 
+		try {
+			Object obj = parser.parse(new FileReader(TOKENS_JSON)); 
+			JSONObject jsonObj = (JSONObject) obj; 
+			JSONArray tokens = (JSONArray) jsonObj.get("tokens"); 
+			Iterator<JSONObject> iterator = tokens.iterator(); 
+			while(iterator.hasNext()){
+				playerTokens.add(new PlayerToken(iterator.next())); 
+			} 
+			} catch (IOException | ParseException e){
+				e.printStackTrace();
+		}
+	}
+	
 	/*
 	 * === GETTERS AND SETTERS  ==================================
 	 */
@@ -126,5 +149,6 @@ public class Board {
 	public ArrayList<Card> getBigFunCards() { return bigFunCards; }
 	public ArrayList<Card> getContingencyCards() { return contingencyCards; }
 	public ArrayList<Space> getSpaces() { return spaces; } 
+	public ArrayList<PlayerToken> getTokens() { return playerTokens; } 
 
 }
