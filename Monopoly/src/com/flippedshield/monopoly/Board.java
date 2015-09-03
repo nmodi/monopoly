@@ -24,7 +24,7 @@ public class Board {
 	
 	public Board()
 	{
-		players = new ArrayList<Player>();
+		initPlayers();
 		die = new Die();
 		initBigFunCards();
 		initContingencyCards();
@@ -33,6 +33,15 @@ public class Board {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
+	}
+	
+	private void initPlayers()
+	{
+		players = new ArrayList<Player>();
+		
+		players.add(new Player("Nilay", 200));
+		players.add(new Player("Jacob", 200));
+		players.add(new Player("Derek", 200));
 	}
 	
 	/**

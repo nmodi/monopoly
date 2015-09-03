@@ -19,7 +19,7 @@ public class WhenANewGameIsStarted {
 	private Game game;
 	
 	@Before
-	public void startup()
+	public void setUp() throws Exception
 	{
 		game = new Game();
 	}
