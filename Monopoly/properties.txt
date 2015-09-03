@@ -9,3 +9,32 @@
 -richardson
 -mckinney
 -lewisville
+-plano office
+-san antonio home office
+-addison 
+-dallas
+-austin
+-houston 
+-okc 
+-frisco
+-richardson
+-mckinney
+-lewisville
+-plano office
+-san antonio home office
+-addison 
+-dallas
+-austin
+-houston 
+-okc 
+-frisco
+-richardson
+-mckinney
+-lewisville
+-plano office
+-san antonio home office
+-addison 
+-dallas
+-austin
+-houston 
+-okc 

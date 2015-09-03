@@ -6,8 +6,9 @@ public class Game {
 	private Bank bank;
 	
 	{
-		board = new Board();
+
 		bank = new Bank();
+		board = new Board();
 	}
 	
 	public static void main(String[] args) {
