@@ -11,11 +11,18 @@ public class PropertySpace extends Space implements AbstractPropertySpace, Ownab
 	public PropertySpace(Deed deed){
 //		this.name = name; 
 //		this.cost = cost; 
-		this.deed = deed;
+		setDeed(deed);
 		super.setName(deed.getName());
+		
+		buildingTokenList = new ArrayList<BuildingToken>();
 	}
 	
 	public ArrayList<BuildingToken> getBuildingTokenList() {
 		return buildingTokenList;
+	}
+	
+	public void setDeed(Deed deed)
+	{
+		this.deed = deed;
 	}
 }

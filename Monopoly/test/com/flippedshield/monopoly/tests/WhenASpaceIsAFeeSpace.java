@@ -45,7 +45,6 @@ public class WhenASpaceIsAFeeSpace {
 	public void shouldHaveNotHaveATokenList() throws ClassNotFoundException, NoSuchFieldException, SecurityException {
 		Class space = Class.forName("com.flippedshield.monopoly");
 		
-		
 		for(FeeSpace p : feeSpaces)
 		{
 			thrown.expect(NoSuchFieldException.class);
