@@ -36,6 +36,8 @@ public class WhenSpacesAreSetUp {
 	{
 		ArrayList<Space> spaces = game.getBoard().getSpaces();
 		
+		System.out.println(Game.getBank().getDeeds().get(Game.getBank().getDeeds().size()-1).getName());
+		
 		if(spaces.isEmpty())
 		{
 			fail("Spaces list is empty");

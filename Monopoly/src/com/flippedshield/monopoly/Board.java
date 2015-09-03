@@ -121,6 +121,7 @@ public class Board {
 		}
 		*/
 		int i = 0;
+		int j = 0;
 		spaces.add(new GoSpace("Go Space"));
 		spaces.add(new PropertySpace(properties.get(i++))); 
 		spaces.add(new CardSpace("Contingency Card"));
@@ -133,10 +134,12 @@ public class Board {
 		spaces.add(new PropertySpace(properties.get(i++)));
 		
 		spaces.add(new JailSpace("Jail/Visiting"));
-		for(; i < 6; i++)
+		for(j = 0; j < 6; j++)
 		{
-			spaces.add(new PropertySpace(properties.get(i)));
+			spaces.add(new PropertySpace(properties.get(j)));
 		}
+		i += j;
+		
 		spaces.add(new CardSpace("Contingency Card"));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		spaces.add(new PropertySpace(properties.get(i++)));
@@ -144,10 +147,11 @@ public class Board {
 		spaces.add(new FreeParkingSpace("Free Parking"));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		spaces.add(new CardSpace("Big Fun Card"));
-		for(; i < 7; i++)
+		for(j = 0; j < 7; j++)
 		{
-			spaces.add(new PropertySpace(properties.get(i)));
+			spaces.add(new PropertySpace(properties.get(j)));
 		}
+		i+=j;
 		
 		spaces.add(new GoToJailSpace("Go To Jail"));
 		spaces.add(new PropertySpace(properties.get(i++)));
