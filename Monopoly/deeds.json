@@ -1,11 +1,41 @@
 {
 	"deeds":
-	[
-		{
-			"name":"Cotton Dome", 
+	[		
+        {
+            "name":"Dallas Farmers Market", 
+            "owner":"Bank", 
+            "color":"red",
+            "mortgage":30,
+            "blockCost":50,
+            "keyCost":50,
+            "baseRent":4, 
+            "oneBlock":20, 
+            "twoBlock":60, 
+            "threeBlock":180, 
+            "fourBlock":320, 
+            "keyToCity":450
+        },
+
+        {
+            "name":"Deep Ellum", 
+            "owner":"Bank", 
+            "color":"red",
+            "mortgage":30,
+            "blockCost":50,
+            "keyCost":50,
+            "baseRent":4, 
+            "oneBlock":20, 
+            "twoBlock":60, 
+            "threeBlock":180, 
+            "fourBlock":320, 
+            "keyToCity":450
+        },
+
+        {
+			"name":"Lovers Lane", 
 		 	"owner":"Bank", 
-		 	"color":"red",
-		 	"mortgage":80,
+		 	"color":"black",
+		 	"mortgage":100,
 			"blockCost":25,
  			"keyCost":100,
 			"baseRent":100, 
@@ -15,12 +45,357 @@
 			"fourBlock":350, 
 			"keyToCity":400
 		},
+
+        {
+			"name":"Six Flags Over Texas", 
+		 	"owner":"Bank", 
+		 	"color":"orange",
+		 	"mortgage":60,
+			"blockCost":50,
+ 			"keyCost":50,
+			"baseRent":8, 
+			"oneBlock":40, 
+			"twoBlock":100, 
+			"threeBlock":300, 
+			"fourBlock":450, 
+			"keyToCity":600
+		},
 		
 		{
+			"name":"Big Tex", 
+		 	"owner":"Bank", 
+		 	"color":"orange",
+		 	"mortgage":50,
+			"blockCost":50,
+ 			"keyCost":50,
+			"baseRent":6, 
+			"oneBlock":30, 
+			"twoBlock":90, 
+			"threeBlock":270, 
+			"fourBlock":400, 
+			"keyToCity":550
+		},
+
+        {
 			"name":"Dallas Zoo", 
+		 	"owner":"Bank", 
+		 	"color":"orange",
+		 	"mortgage":50,
+			"blockCost":50,
+ 			"keyCost":50,
+			"baseRent":6, 
+			"oneBlock":30, 
+			"twoBlock":90, 
+			"threeBlock":270, 
+			"fourBlock":400, 
+			"keyToCity":550
+		},
+
+        {
+			"name":"Adolphus Hotel", 
 		 	"owner":"Bank", 
 		 	"color":"yellow",
 		 	"mortgage":80,
+			"blockCost":100,
+ 			"keyCost":100,
+			"baseRent":12, 
+			"oneBlock":60, 
+			"twoBlock":180, 
+			"threeBlock":500, 
+			"fourBlock":700, 
+			"keyToCity":900
+		},
+		
+		{
+			"name":"Sonny Bryans Smokehouse", 
+		 	"owner":"Bank", 
+		 	"color":"yellow",
+		 	"mortgage":70,
+			"blockCost":100,
+ 			"keyCost":100,
+			"baseRent":10, 
+			"oneBlock":50, 
+			"twoBlock":150, 
+			"threeBlock":450, 
+			"fourBlock":625, 
+			"keyToCity":750
+		},
+
+        {
+			"name":"Dallas Arboretum", 
+		 	"owner":"Bank", 
+		 	"color":"yellow",
+		 	"mortgage":70,
+			"blockCost":100,
+ 			"keyCost":100,
+			"baseRent":10, 
+			"oneBlock":50, 
+			"twoBlock":150, 
+			"threeBlock":450, 
+			"fourBlock":625, 
+			"keyToCity":750
+		},
+
+        {
+			"name":"McKinney Avenue", 
+		 	"owner":"Bank", 
+		 	"color":"black",
+		 	"mortgage":100,
+			"blockCost":25,
+ 			"keyCost":100,
+			"baseRent":25, 
+			"oneBlock":150, 
+			"twoBlock":200, 
+			"threeBlock":300, 
+			"fourBlock":350, 
+			"keyToCity":400
+		},
+
+        {
+			"name":"White Rock Lake", 
+		 	"owner":"Bank", 
+		 	"color":"green",
+		 	"mortgage":100,
+			"blockCost":100,
+ 			"keyCost":100,
+			"baseRent":16, 
+			"oneBlock":80, 
+			"twoBlock":220, 
+			"threeBlock":600, 
+			"fourBlock":800, 
+			"keyToCity":1000
+		},
+		
+		{
+			"name":"American Airlines Center", 
+		 	"owner":"Bank", 
+		 	"color":"green",
+		 	"mortgage":90,
+			"blockCost":100,
+ 			"keyCost":100,
+			"baseRent":14, 
+			"oneBlock":70, 
+			"twoBlock":200, 
+			"threeBlock":550, 
+			"fourBlock":750, 
+			"keyToCity":950
+		},
+		
+		{
+			"name":"Mesquite Rodeo", 
+		 	"owner":"Bank", 
+		 	"color":"green",
+		 	"mortgage":90,
+			"blockCost":100,
+ 			"keyCost":100,
+			"baseRent":14, 
+			"oneBlock":70, 
+			"twoBlock":200, 
+			"threeBlock":550, 
+			"fourBlock":750, 
+			"keyToCity":950
+		},
+
+        {
+			"name":"Old Red", 
+		 	"owner":"Bank", 
+		 	"color":"grey",
+		 	"mortgage":120,
+			"blockCost":150,
+ 			"keyCost":150,
+			"baseRent":20, 
+			"oneBlock":100, 
+			"twoBlock":300, 
+			"threeBlock":750, 
+			"fourBlock":925, 
+			"keyToCity":110
+		},
+		
+		{
+			"name":"West End Historic District", 
+		 	"owner":"Bank", 
+		 	"color":"grey",
+		 	"mortgage":110,
+			"blockCost":150,
+ 			"keyCost":150,
+			"baseRent":18, 
+			"oneBlock":90, 
+			"twoBlock":250, 
+			"threeBlock":700, 
+			"fourBlock":875, 
+			"keyToCity":1050
+		},
+		
+		{
+			"name":"The Sixth Floor Museum", 
+		 	"owner":"Bank", 
+		 	"color":"grey",
+		 	"mortgage":110,
+			"blockCost":150,
+ 			"keyCost":150,
+			"baseRent":18, 
+			"oneBlock":90, 
+			"twoBlock":250, 
+			"threeBlock":700, 
+			"fourBlock":875, 
+			"keyToCity":1050
+		},
+
+        {
+			"name":"Turtle Creek Boulevard", 
+		 	"owner":"Bank", 
+		 	"color":"black",
+		 	"mortgage":100,
+			"blockCost":25,
+ 			"keyCost":100,
+			"baseRent":25, 
+			"oneBlock":150, 
+			"twoBlock":200, 
+			"threeBlock":300, 
+			"fourBlock":350, 
+			"keyToCity":400
+		},
+
+        {
+			"name":"Morton H Meyerson Symphony Center", 
+		 	"owner":"Bank", 
+		 	"color":"purple",
+		 	"mortgage":130,
+			"blockCost":150,
+ 			"keyCost":150,
+			"baseRent":22, 
+			"oneBlock":110, 
+			"twoBlock":330, 
+			"threeBlock":800, 
+			"fourBlock":975, 
+			"keyToCity":1150
+		},
+		
+		{
+			"name":"Dallas Theater Center", 
+		 	"owner":"Bank", 
+		 	"color":"purple",
+		 	"mortgage":130,
+			"blockCost":150,
+ 			"keyCost":150,
+			"baseRent":22, 
+			"oneBlock":110, 
+			"twoBlock":330, 
+			"threeBlock":800, 
+			"fourBlock":975, 
+			"keyToCity":1150
+		},
+		
+		{
+			"name":"Dallas Museum of Art", 
+		 	"owner":"Bank", 
+		 	"color":"purple",
+		 	"mortgage":140,
+			"blockCost":150,
+ 			"keyCost":150,
+			"baseRent":24, 
+			"oneBlock":120, 
+			"twoBlock":360, 
+			"threeBlock":850, 
+			"fourBlock":1025, 
+			"keyToCity":1200
+		},
+
+        {
+			"name":"Nasher Sculpture Center", 
+		 	"owner":"Bank", 
+		 	"color":"teal",
+		 	"mortgage":150,
+			"blockCost":200,
+ 			"keyCost":200,
+			"baseRent":26, 
+			"oneBlock":130, 
+			"twoBlock":390, 
+			"threeBlock":900, 
+			"fourBlock":1100, 
+			"keyToCity":1275
+		},
+		
+		{
+			"name":"Old City Park", 
+		 	"owner":"Bank", 
+		 	"color":"teal",
+		 	"mortgage":150,
+			"blockCost":200,
+ 			"keyCost":200,
+			"baseRent":26, 
+			"oneBlock":130, 
+			"twoBlock":390, 
+			"threeBlock":900, 
+			"fourBlock":1100, 
+			"keyToCity":1275
+		},
+		
+		{
+			"name":"Pioneer Plaza", 
+		 	"owner":"Bank", 
+		 	"color":"teal",
+		 	"mortgage":160,
+			"blockCost":200,
+ 			"keyCost":200,
+			"baseRent":28, 
+			"oneBlock":150, 
+			"twoBlock":450, 
+			"threeBlock":1000, 
+			"fourBlock":1200, 
+			"keyToCity":1400
+		},
+
+        {
+			"name":"LBJ Freeway", 
+		 	"owner":"Bank", 
+		 	"color":"black",
+		 	"mortgage":100,
+			"blockCost":25,
+ 			"keyCost":100,
+			"baseRent":100, 
+			"oneBlock":150, 
+			"twoBlock":200, 
+			"threeBlock":300, 
+			"fourBlock":350, 
+			"keyToCity":400
+		},
+
+        {
+			"name":"Fair Park", 
+		 	"owner":"Bank", 
+		 	"color":"pink",
+		 	"mortgage":175,
+			"blockCost":200,
+ 			"keyCost":200,
+			"baseRent":35, 
+			"oneBlock":175, 
+			"twoBlock":500, 
+			"threeBlock":1000, 
+			"fourBlock":1300, 
+			"keyToCity":1500
+		},
+
+		{
+			"name":"Reunion Tower", 
+		 	"owner":"Bank", 
+		 	"color":"pink",
+		 	"mortgage":200,
+			"blockCost":200,
+ 			"keyCost":200,
+			"baseRent":50, 
+			"oneBlock":200, 
+			"twoBlock":600, 
+			"threeBlock":1400, 
+			"fourBlock":1700, 
+			"keyToCity":2000
+		},
+		
+		{
+			"name":"Cotton Bowl", 
+		 	"owner":"Bank", 
+		 	"color":"black",
+		 	"mortgage":75,
 			"blockCost":25,
  			"keyCost":100,
 			"baseRent":100, 
@@ -35,7 +410,7 @@
 			"name":"AT&T Stadium", 
 		 	"owner":"Bank", 
 		 	"color":"black",
-		 	"mortgage":80,
+		 	"mortgage":75,
 			"blockCost":25,
  			"keyCost":100,
 			"baseRent":100, 
@@ -44,21 +419,26 @@
 			"threeBlock":300, 
 			"fourBlock":350, 
 			"keyToCity":400
+		}
+		
+	],
+	
+	"specials":
+	[
+		{
+			"name":"Go"
 		},
 		
 		{
-			"name":"McKinney Avenue", 
-		 	"owner":"Bank", 
-		 	"color":"black",
-		 	"mortgage":80,
-			"blockCost":25,
- 			"keyCost":100,
-			"baseRent":100, 
-			"oneBlock":150, 
-			"twoBlock":200, 
-			"threeBlock":300, 
-			"fourBlock":350, 
-			"keyToCity":400
+			"name":"Jail"
+		},
+		
+		{
+			"name":"Jackpot"
+		},
+		
+		{
+			"name":"Go To Jail"
 		},
 				{
 			"name":"McKinney Avenue", 

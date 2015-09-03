@@ -17,9 +17,10 @@ public class Game {
 		initGame(); 
 	}
 	
-	public static void initGame() {
-		board = new Board(); 
+	public static void initGame() 
+	{
 		bank = new Bank();
+		board = new Board();
 	}
 	
 	public static void main(String[] args) {
@@ -128,6 +129,6 @@ public class Game {
 
 	public static void endGame() { gameWon = true; }
 	public Board getBoard() { return board; }
-	public Bank getBank() { return bank; }
+	public static Bank getBank() { return bank; }
 	public static boolean getDebugMode() { return DEBUG_MODE; }
 }
