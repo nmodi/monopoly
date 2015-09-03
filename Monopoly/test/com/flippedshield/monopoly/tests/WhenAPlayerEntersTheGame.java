@@ -1,13 +1,13 @@
 package com.flippedshield.monopoly.tests;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import com.flippedshield.monopoly.Deed;
 import com.flippedshield.monopoly.Game;
 import com.flippedshield.monopoly.Player;
 
@@ -62,13 +62,25 @@ public class WhenAPlayerEntersTheGame {
 	@Test 
 	public void shouldHaveNoJailCards()
 	{
-		fail("Not yet implemented");
+		int jailCards;
+		
+		for(Player p : players)
+		{
+			jailCards = p.getJailCards();
+			assertTrue("Player " + players.indexOf(p) + " should have had 0 jail cards", p.getJailCards() == 0);
+		}
 	}
 	
 	@Test 
 	public void shouldHaveEmptyListOfDeeds()
 	{
-		fail("Not yet implemented");
+		ArrayList<Deed> deeds;
+		
+		for(Player p : players)
+		{
+			deeds = p.getOwnedDeeds();
+			assertTrue("Player " + players.indexOf(p) + " should have had no deeds", p.getOwnedDeeds().isEmpty());
+		}
 	}
 
 }
