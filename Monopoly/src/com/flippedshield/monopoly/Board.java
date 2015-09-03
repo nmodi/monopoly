@@ -18,12 +18,14 @@ public class Board {
 	private static final String TOKENS_JSON = "tokens.json";
 	private static final String PLAYERS_JSON = "players.json";
 	
+	private static BankerPlayer banker;
+	
 	private ArrayList<Player> players;
 	private Die die;
 	private ArrayList<Card> bigFunCards;
 	private ArrayList<Card> contingencyCards;
 	private ArrayList<Space> spaces; 
-	private ArrayList<PlayerToken> playerTokens; 
+	private ArrayList<PlayerToken> playerTokens;
 	
 	public Board()
 	{
@@ -54,6 +56,8 @@ public class Board {
 			} catch (IOException | ParseException e){
 				e.printStackTrace();
 		}
+		
+		setBanker(new BankerPlayer("Banker"));
 	}
 	
 	/**
@@ -157,6 +161,14 @@ public class Board {
 	public ArrayList<Card> getBigFunCards() { return bigFunCards; }
 	public ArrayList<Card> getContingencyCards() { return contingencyCards; }
 	public ArrayList<Space> getSpaces() { return spaces; } 
-	public ArrayList<PlayerToken> getTokens() { return playerTokens; } 
+	public ArrayList<PlayerToken> getTokens() { return playerTokens; }
+
+	public static BankerPlayer getBanker() {
+		return banker;
+	}
+
+	public static void setBanker(BankerPlayer banker) {
+		Board.banker = banker;
+	} 
 
 }

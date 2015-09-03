@@ -50,7 +50,8 @@ public class Deed {
 	{
 		if(owner.equalsIgnoreCase("bank"))
 		{
-			this.owner = new BankerPlayer(owner);
+			this.owner = Board.getBanker();
+			
 		} else
 		{
 			this.owner = new Player(owner);
