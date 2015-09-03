@@ -91,7 +91,6 @@ public class Board {
 		
 		spaces = new ArrayList<Space>(40);
 		ArrayList<Deed> properties = Game.getBank().getDeeds();
-		ArrayList<FeeSpace> feeSpaces = new ArrayList<FeeSpace>(2);
 		
 		/*
 		JSONParser parser = new JSONParser();
@@ -124,26 +123,51 @@ public class Board {
 		int i = 0;
 		spaces.add(new GoSpace("Go Space"));
 		spaces.add(new PropertySpace(properties.get(i++))); 
-		spaces.add(new CardSpace("Contingency"));
+		spaces.add(new CardSpace("Contingency Card"));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		spaces.add(new FeeSpace("Tax"));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		spaces.add(new PropertySpace(properties.get(i++)));
-		spaces.add(new CardSpace("Big Fun"));
+		spaces.add(new CardSpace("Big Fun Card"));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		
+		spaces.add(new JailSpace("Jail/Visiting"));
+		for(; i < 6; i++)
+		{
+			spaces.add(new PropertySpace(properties.get(i)));
+		}
+		spaces.add(new CardSpace("Contingency Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
 		
-//		for(i = i; i < 7; i++)
-//		{
-//			spaces.add(new PropertySpace(properties.get(i)));
-//		}
+		spaces.add(new FreeParkingSpace("Free Parking"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new CardSpace("Big Fun Card"));
+		for(; i < 7; i++)
+		{
+			spaces.add(new PropertySpace(properties.get(i)));
+		}
+		
+		spaces.add(new GoToJailSpace("Go To Jail"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new CardSpace("Contingency Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));//should be RR
+		spaces.add(new CardSpace("Big Fun Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new FeeSpace("Tax"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		
+		
+		
 		
 		for(Space s : spaces)
 		{
 			System.out.println(" + " + s.getName());
 		}
-		
+		System.out.println("SIZE " + spaces.size());
 		
 	}
 	
