@@ -12,16 +12,28 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Bank {
+	private Bank instance; 
 	
-	private static final String DEED_JSON = "deeds.json";
+	static final String DEED_JSON = "deeds.json";
 	
-	private ArrayList<Deed> deeds; 
+	private static ArrayList<Deed> deeds; 
 	
-	public Bank(){
+	public Bank() {} 
+	
+	public static void initBank(){
 		initDeeds();	
 	}
 	
-	public void initDeeds()
+	public Bank getInstance(){
+		if (instance == null){
+			instance = new Bank(); 
+			initBank(); 
+		}
+		
+		return instance; 
+	}
+	
+	public static void initDeeds()
 	{
 		deeds = new ArrayList<Deed>();
 		

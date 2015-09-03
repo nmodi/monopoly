@@ -1,5 +1,6 @@
 package com.flippedshield.monopoly.tests;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class WhenAPlayerEntersTheGame {
 	public void setUp() throws Exception 
 	{
 		game = new Game();
-		players = game.getBoard().getPlayers();
+		players = game.getBoard().getPlayers(); 
 	}
 
 	@Test
@@ -31,8 +32,7 @@ public class WhenAPlayerEntersTheGame {
 		for(Player p : players)
 		{
 			name = p.getName();
-			System.out.println(name);
-			assertTrue("Player " + players.indexOf(p) + " had no name", !p.getName().isEmpty());
+			assertTrue("Player " + players.indexOf(p) + " had no name", !name.isEmpty());
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class WhenAPlayerEntersTheGame {
 		for(Player p : players)
 		{
 			lastTwoRolls = p.getLastTwoRolls();
-			assertTrue("Player " + players.indexOf(p) + " had a bad roll history", p.getLastTwoRolls() >= 0);
+			assertTrue("Player " + players.indexOf(p) + " had a bad roll history", lastTwoRolls >= 0);
 		}
 	}
 	
@@ -56,7 +56,7 @@ public class WhenAPlayerEntersTheGame {
 		for(Player p : players)
 		{
 			wealth = p.getWealth();
-			assertTrue("Player " + players.indexOf(p) + " had no wealth", p.getWealth() > 0);
+			assertTrue("Player " + players.indexOf(p) + " had no wealth", wealth > 0);
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class WhenAPlayerEntersTheGame {
 		for(Player p : players)
 		{
 			jailCards = p.getJailCards();
-			assertTrue("Player " + players.indexOf(p) + " should have had 0 jail cards", p.getJailCards() == 0);
+			assertTrue("Player " + players.indexOf(p) + " should have had 0 jail cards", jailCards == 0);
 		}
 	}
 	
@@ -80,7 +80,14 @@ public class WhenAPlayerEntersTheGame {
 		for(Player p : players)
 		{
 			deeds = p.getOwnedDeeds();
-			assertTrue("Player " + players.indexOf(p) + " should have had no deeds", p.getOwnedDeeds().isEmpty());
+			assertTrue("Player " + players.indexOf(p) + " should have had no deeds", deeds.isEmpty());
+		}
+	}
+	
+	@Test 
+	public void shouldHaveAssociatedToken(){
+		for (Player p : players){
+			assertNotNull(p.getPlayerToken()); 
 		}
 	}
 

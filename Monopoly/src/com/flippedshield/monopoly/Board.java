@@ -1,10 +1,10 @@
 package com.flippedshield.monopoly;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -12,11 +12,12 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Board {
+//	private static Board instance; 
 	
-	private static final String PROPERTIES_FILE = "properties.txt"; 
-	private static final String CARD_INFORMATION_JSON = "cardInformation.json"; 
-	private static final String TOKENS_JSON = "tokens.json";
-	private static final String PLAYERS_JSON = "players.json";
+	private final String PROPERTIES_FILE = "properties.txt"; 
+	private final String CARD_INFORMATION_JSON = "cardInformation.json"; 
+	private final String TOKENS_JSON = "tokens.json";
+	private final String PLAYERS_JSON = "players.json";
 	
 	private ArrayList<Player> players;
 	private Die die;
@@ -25,8 +26,7 @@ public class Board {
 	private ArrayList<Space> spaces; 
 	private ArrayList<PlayerToken> playerTokens; 
 	
-	public Board()
-	{
+	public Board() {
 		initPlayers();
 		die = new Die();
 		initBigFunCards();
@@ -37,9 +37,19 @@ public class Board {
 			e.printStackTrace();
 		} 
 		initTokens(); 
+		giveTokensToPlayers(); 
 	}
 	
-	private void initPlayers()
+	private void giveTokensToPlayers(){
+		Random r = new Random(); 	
+		
+		for (int i = 0; i < players.size(); i++) {
+			int index = r.nextInt(playerTokens.size()); 
+			players.get(i).setPlayerToken(playerTokens.remove(index));  
+		}
+	}
+		
+	private  void initPlayers()
 	{
 		players = new ArrayList<Player>(); 
 		JSONParser parser = new JSONParser(); 
@@ -60,24 +70,40 @@ public class Board {
 	 * Creates the spaces list and fills it with space objects
 	 * @throws IOException
 	 */
-	private void initSpaces() throws IOException{
+	private  void initSpaces() throws IOException{
+		
 		spaces = new ArrayList<Space>(40);
-		BufferedReader br = new BufferedReader(new FileReader(PROPERTIES_FILE));
-		try { 
-			String line = br.readLine(); 
-			while (line != null) {
-				spaces.add(new Space(line));
-				line = br.readLine(); 
-			}	
-		} finally {
-			br.close(); 
+		
+		JSONParser parser = new JSONParser();
+		
+		try {
+			Object obj = parser.parse(new FileReader(Bank.DEED_JSON));
+			JSONObject jsonObj = (JSONObject) obj;
+			
+			JSONArray propertyArray = (JSONArray) jsonObj.get("deeds");
+			
+			Iterator<JSONObject> iterator = propertyArray.iterator();
+			
+			while(iterator.hasNext())
+			{
+				JSONObject property = iterator.next();
+				spaces.add(
+						new Space(
+							(String) property.get("name") 
+						));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
+		
 	}
 	
 	/**
 	 * Creates big fun card list and fills it with cards
 	 */
-	private void initBigFunCards()
+	private  void initBigFunCards()
 	{
 		bigFunCards = new ArrayList<Card>();
 		
@@ -105,7 +131,7 @@ public class Board {
 	/**
 	 * Creates contingency card list and fills it with cards
 	 */
-	private void initContingencyCards()
+	private  void initContingencyCards()
 	{
 		contingencyCards = new ArrayList<Card>();
 		
@@ -133,7 +159,7 @@ public class Board {
 	/**
 	 * Creates list of Tokens and initializes it from TOKENS_JSON file 
 	 */
-	private void initTokens(){
+	private  void initTokens(){
 		playerTokens = new ArrayList<PlayerToken>(); 
 		JSONParser parser = new JSONParser(); 
 		try {

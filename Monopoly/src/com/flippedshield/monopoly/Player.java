@@ -15,6 +15,7 @@ public class Player {
 	private int wealth;
 	private int jailCards;
 	private ArrayList<Deed> ownedDeeds;
+	private PlayerToken token; 
 	
 	private static final int DEFAULT_STARTING_WEALTH = 500; 
 	
@@ -28,6 +29,8 @@ public class Player {
 		setName(name);
 		initLastTwoRolls();
 		setWealth(DEFAULT_STARTING_WEALTH);
+		initOwnedDeedsList(); 
+		System.out.println(name + " has joined the game with $" + wealth);
 	}
 	
 	/**
@@ -100,5 +103,14 @@ public class Player {
 	public void setOwnedDeeds(ArrayList<Deed> ownedDeeds)
 	{
 		this.ownedDeeds = ownedDeeds;
+	}
+	
+	public PlayerToken getPlayerToken(){
+		return token; 
+	}
+
+	public void setPlayerToken(PlayerToken newToken) {
+		this.token = newToken; 
+		System.out.println(name + " has the " + token.getName() + " token! " + token.getSymbol());
 	}
 }
