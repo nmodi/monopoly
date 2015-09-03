@@ -1,8 +1,5 @@
 package com.flippedshield.monopoly;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 public class Deed {
 
 	private boolean isMortgaged;

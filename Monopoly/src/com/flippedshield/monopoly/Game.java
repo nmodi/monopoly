@@ -15,9 +15,10 @@ public class Game {
 		initGame(); 
 	}
 	
-	public static void initGame() {
-		board = new Board(); 
+	public static void initGame() 
+	{
 		bank = new Bank();
+		board = new Board();
 	}
 	
 	public static void main(String[] args) {

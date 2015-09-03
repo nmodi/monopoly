@@ -123,25 +123,6 @@ public class WhenANewGameIsStarted {
 	}
 	
 	@Test
-	public void SpacesShouldHaveNames()
-	{
-		ArrayList<Space> spaces = game.getBoard().getSpaces();
-		
-		if(spaces.isEmpty())
-		{
-			fail("Spaces list is empty");
-			
-		} else
-		{
-			for (Space s : spaces){
-				if (s.getName().isEmpty() || s.getName() == null){
-					fail("Space #" + spaces.indexOf(s) + " name was empty"); 
-				}
-			}
-		}
-	}
-	
-	@Test
 	public void ShouldHaveDeedsInBank(){
 		assertNotNull(
 				game
