@@ -1,7 +1,5 @@
 package com.flippedshield.monopoly;
 
-import org.json.simple.JSONObject;
-
 /**
  * Defines the basic token attributes and methods
  * @author plk4578

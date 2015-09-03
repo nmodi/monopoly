@@ -1,7 +1,5 @@
 package com.flippedshield.monopoly;
 
-import java.util.ArrayList;
-
 public class Game {
 	
 	private Board board;
