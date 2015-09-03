@@ -8,12 +8,12 @@ public class FreeParkingSpace extends Space {
 	}
 
 	@Override
-	public void onLanding() {
+	public void onLanding(Player player) {
 		
 	}
 
 	@Override
-	public void onLeaving() {
+	public void onLeaving(Player player) {
 		
 	}
 }

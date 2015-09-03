@@ -43,6 +43,10 @@ public class Deed {
 
 	public Player getOwner() { return owner; }
 	
+	/**
+	 * Set owner for setting initial owner
+	 * @param owner
+	 */
 	public void setOwner(String owner)
 	{
 		if(owner.equalsIgnoreCase("bank"))
@@ -53,6 +57,16 @@ public class Deed {
 		{
 			this.owner = new Player(owner);
 		}
+		
+	}
+	
+	/**
+	 * Set owner for changing owners
+	 * @param owner
+	 */
+	public void setOwner(Player owner)
+	{
+		this.owner = owner;
 		
 	}
 	

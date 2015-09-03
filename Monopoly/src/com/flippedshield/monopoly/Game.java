@@ -5,7 +5,7 @@ public class Game {
 	private static Board board;
 	private static Bank bank;
 	private static boolean gameWon = false; 
-//	private static boolean DEBUG_MODE = true; 
+	public static boolean DEBUG_MODE = true; 
 	
 	private static int playerCount; 
 	

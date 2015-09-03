@@ -8,12 +8,28 @@ public class FeeSpace extends Space implements Ownable {
 	}
 
 	@Override
-	public void onLanding() {
+	public void onLanding(Player player) {
 		
 	}
 
 	@Override
-	public void onLeaving() {
+	public void onLeaving(Player player) {
 		
 	}
+
+	@Override
+	public boolean isPurchased() {
+		return false;
+	}
+
+	@Override
+	public void isPurchased(boolean isPurchased) {
+		
+	}
+
+	@Override
+	public void changeOwner(Player owner) {
+		
+	}
+
 }

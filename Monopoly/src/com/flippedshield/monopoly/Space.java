@@ -7,8 +7,8 @@ public abstract class Space {
 		setName(name); 
 	}
 	
-	public abstract void onLanding();
-	public abstract void onLeaving();
+	public abstract void onLanding(Player player);
+	public abstract void onLeaving(Player player);
 	
 	public void setName(String name) { this.name = name; } 
 	public String getName() { return name; }
