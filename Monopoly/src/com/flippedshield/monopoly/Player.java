@@ -10,7 +10,7 @@ public class Player {
 	private static final int STARTING_ROLL_HISTORY = 0;
 	private static final int STARTING_JAIL_HISTORY = 0;
 	private static final int STARTING_JAIL_CARDS = 0;
-	private static final int DEFAULT_STARTING_WEALTH = 200;
+	private static final int DEFAULT_STARTING_WEALTH = 500;
 	
 	private String name;
 	private int consecutiveDoubles;
