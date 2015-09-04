@@ -10,7 +10,8 @@ public class Player {
 	private static final int STARTING_ROLL_HISTORY = 0;
 	private static final int STARTING_JAIL_HISTORY = 0;
 	private static final int STARTING_JAIL_CARDS = 0;
-
+	private static final int DEFAULT_STARTING_WEALTH = 1000;
+	
 	private String name;
 	private int consecutiveDoubles;
 	private long wealth;
@@ -18,8 +19,8 @@ public class Player {
 	private int turnsInJail; 
 	private ArrayList<Deed> ownedDeeds;
 	private PlayerToken token; 
-	
-	private static final int DEFAULT_STARTING_WEALTH = 500; 
+	private boolean lostGame; 
+	 
 	
 	public Player(){}
 	
@@ -35,6 +36,7 @@ public class Player {
 		setWealth(DEFAULT_STARTING_WEALTH);
 		initOwnedDeedsList(); 
 		System.out.println(name + " has joined the game with $" + wealth);
+		lostGame = false; 
 	}
 	
 	/**
@@ -160,7 +162,10 @@ public class Player {
 	}
 
 	public void removeDeed(Deed deed) {
-		getOwnedDeeds().remove(deed); 
-		
+		getOwnedDeeds().remove(deed); 	
+	}
+	
+	public void playerLostGame(){
+		lostGame = true; 
 	}
 }

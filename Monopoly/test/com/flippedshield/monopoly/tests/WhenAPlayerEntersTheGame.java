@@ -55,7 +55,7 @@ public class WhenAPlayerEntersTheGame {
 		
 		for(Player p : players)
 		{
-			wealth = p.getWealth();
+			wealth = (int) p.getWealth();
 			assertTrue("Player " + players.indexOf(p) + " had no wealth", wealth > 0);
 		}
 	}

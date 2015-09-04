@@ -18,6 +18,7 @@ public class Board {
 	private final String CARD_INFORMATION_JSON = "cardInformation.json"; 
 	private final String TOKENS_JSON = "tokens.json";
 	private final String PLAYERS_JSON = "players.json";
+	public static int JAIL_INDEX; 
 	
 	private BankerPlayer banker;
 	
@@ -33,7 +34,7 @@ public class Board {
 	
 	public Board() {
 		initPlayers();
-		die = new Die();
+		die = new Die(10);
 		initBigFunCards();
 		initContingencyCards();
 		try {
@@ -47,7 +48,7 @@ public class Board {
 	
 	private void giveTokensToPlayers(){
 		Random r = new Random(); 	
-		
+		System.out.println("  ---");
 		for (int i = 0; i < players.size(); i++) {
 			int index = r.nextInt(playerTokens.size()); 
 			players.get(i).setPlayerToken(playerTokens.remove(index));  
@@ -95,7 +96,7 @@ public class Board {
 		ArrayList<Deed> properties = Game.getBank().getDeeds();
 		int i = 0;
 		int j = 0;
-		spaces.add(new GoSpace("Go Space"));
+		spaces.add(new GoSpace("Go"));
 		spaces.add(new PropertySpace(properties.get(i++))); 
 		spaces.add(new CardSpace("Contingency Card"));
 		spaces.add(new PropertySpace(properties.get(i++)));
@@ -106,7 +107,8 @@ public class Board {
 		spaces.add(new PropertySpace(properties.get(i++)));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		
-		spaces.add(new JailSpace("Jail/Visiting"));
+		spaces.add(new JailSpace("Jail / Visiting"));
+		JAIL_INDEX = spaces.size(); 
 		for(j = 0; j < 6; j++)
 		{
 			spaces.add(new PropertySpace(properties.get(j)));
@@ -137,15 +139,14 @@ public class Board {
 		spaces.add(new FeeSpace("Tax"));
 		spaces.add(new PropertySpace(properties.get(i++)));
 		
-		
-		
-		
-		for(Space s : spaces)
+		if(Game.DEBUG_MODE)
 		{
-			System.out.println(" + " + s.getName());
+			for(Space s : spaces)
+			{
+				System.out.println(" + " + s.getName());
+			}
+			System.out.println("SIZE " + spaces.size());
 		}
-		System.out.println("SIZE " + spaces.size());
-		
 		TOTAL_NUMBER_OF_SPACES = spaces.size(); 
 	}
 	

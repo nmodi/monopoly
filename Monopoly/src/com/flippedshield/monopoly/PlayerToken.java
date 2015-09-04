@@ -10,6 +10,7 @@ import org.json.simple.JSONObject;
 public class PlayerToken extends Token {
 	
 	private boolean isImprisoned;
+	private int turnsImprisoned; 
 	
 	
 	public PlayerToken(JSONObject next) {
@@ -26,6 +27,19 @@ public class PlayerToken extends Token {
 	public void setImprisonment(boolean isImprisoned)
 	{
 		this.isImprisoned = isImprisoned;
+	}
+	
+	public int getTurnsImprisoned(){
+		return turnsImprisoned; 
+	}
+	
+	public void incrementTurnsImprisoned(){
+		turnsImprisoned++; 
+	}
+
+	public void resetTurnsImprisoned() {
+		turnsImprisoned = 0; 
+		
 	}
 
 
