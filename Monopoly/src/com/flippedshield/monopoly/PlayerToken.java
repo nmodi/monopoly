@@ -28,22 +28,5 @@ public class PlayerToken extends Token {
 		this.isImprisoned = isImprisoned;
 	}
 
-	/**
-	 * Moves the player by a given number of spaces
-	 * @param magnitude 
-	 * @return Returns true if the player passes go, returns false otherwise. 
-	 */
-	public boolean incrementPosition(int magnitude) {
-		int newPosition = getPosition() + magnitude; 
-		if (Game.getDebugMode()){			
-			System.out.println("magnitude " + magnitude);
-			System.out.println("new position (nonmod)" + newPosition);
-			
-			if (newPosition > Board.TOTAL_NUMBER_OF_SPACES) {
-				System.out.println("new position (mod)" + newPosition);
-			}
-		}
-		setPosition(newPosition % Board.TOTAL_NUMBER_OF_SPACES); 
-		return false; 
-	}
+
 }

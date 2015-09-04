@@ -1,5 +1,6 @@
 package com.flippedshield.monopoly;
 
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game {
@@ -39,6 +40,7 @@ public class Game {
 		playerCount = board.getPlayers().size(); 
 		setTurnOrder();
 		while(!gameWon){
+			System.out.println("Round # " + roundNumber++);
 			gameWon = nextRound(); 	
 //			endGame(); 
 		}
@@ -52,8 +54,7 @@ public class Game {
 	 */
 	private static boolean nextRound() throws InterruptedException {
 		for (int i = 0; i < playerCount; i++){
-			System.out.println("Round # " + roundNumber++);
-			nextTurn(i); 
+			gameWon = nextTurn(i); 
 		}	
 		return false; 
 	}
@@ -68,7 +69,7 @@ public class Game {
 
 		Player currentPlayer = board.getPlayers().get(playerIndex); 
 		String currentPlayerName = currentPlayer.getName(); 
-		System.out.println("\n" + currentPlayerName + " is up next!");
+		System.out.println(currentPlayerName + " is up next!");
 		
 		int total = rollDie(currentPlayer); 
 		
@@ -83,11 +84,14 @@ public class Game {
 			}
 		}
 		
-		currentPlayer.getPlayerToken().incrementPosition(total);
-		System.out.println(currentPlayer.getName() +" is currently at " + currentPlayer.getPlayerToken().getPosition());  
+		int oldPosition = currentPlayer.getPlayerToken().getPosition(); 
+		boolean passedGo = incrementPosition(total, currentPlayer.getPlayerToken());
+		System.out.println(currentPlayer.getName() +" moved from " + oldPosition + " to " + currentPlayer.getPlayerToken().getPosition() + ".");  
+		
+		ArrayList<Space> spaces = board.getSpaces(); 
+		Space currentSpace = spaces.get(currentPlayer.getPlayerToken().getPosition()); 
 		
 		
-		// move to the next space
 		// check what type of space it is 
 		// if it's go, collect 200 
 		// if it's go to jail, go to jail
@@ -97,6 +101,10 @@ public class Game {
 		//		if owned, pay rent to owner 
 		// 		if unowned, ask if player wants to buy 
 		//			if player declines, start auction 
+		
+		//Line Spacer
+		Thread.sleep(250);
+		System.out.println("");
 		return false; 
 	}
 	
@@ -123,11 +131,33 @@ public class Game {
 		return rollTotal; 
 	}
 	
+	/**
+	 * Moves the player by a given number of spaces
+	 * @param magnitude 
+	 * @return Returns true if the player passes go, returns false otherwise. 
+	 */
+	public static boolean incrementPosition(int magnitude, PlayerToken token) {
+		int newPosition = token.getPosition() + magnitude; 
+		if (Game.getDebugMode()){			
+			System.out.println("magnitude " + magnitude);
+			System.out.println("new position (nonmod)" + newPosition);
+			
+			if (newPosition > Board.TOTAL_NUMBER_OF_SPACES) {
+				System.out.println("new position (mod)" + newPosition);
+			}
+		}
+		token.setPosition(newPosition % Board.TOTAL_NUMBER_OF_SPACES);
+		if (newPosition > Board.TOTAL_NUMBER_OF_SPACES ) { 
+			return true; 
+		}
+		return false; 
+	}
+	
 	private static void setTurnOrder() throws InterruptedException{
 		System.out.println("\nRandomizing turn order...");
 		Thread.sleep(300);
 		Collections.shuffle(board.getPlayers());
-		System.out.println(board.getPlayers().get(0).getName() + " goes first!");
+		System.out.println(board.getPlayers().get(0).getName() + " goes first!\n");
 	}
 
 	public static void endGame() { gameWon = true; }
