@@ -1,9 +1,8 @@
 package com.flippedshield.monopoly;
 
-public class FreeParkingSpace extends Space {
+public class Tax extends Space {
 
-	public FreeParkingSpace(String name)
-	{
+	public Tax(String name) {
 		super(name);
 	}
 
@@ -16,4 +15,5 @@ public class FreeParkingSpace extends Space {
 	public void onLeaving(Player player) {
 		
 	}
+
 }
