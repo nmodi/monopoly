@@ -144,6 +144,8 @@ public class Board {
 			System.out.println(" + " + s.getName());
 		}
 		System.out.println("SIZE " + spaces.size());
+		
+		TOTAL_NUMBER_OF_SPACES = spaces.size(); 
 	}
 	
 	/**

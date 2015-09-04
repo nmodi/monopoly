@@ -11,6 +11,8 @@ public class Game {
 	
 	private static int playerCount; 
 	
+	private static int roundNumber = 1; 
+	
 	static Game game; 
 	
 	public Game(){ 
@@ -50,6 +52,7 @@ public class Game {
 	 */
 	private static boolean nextRound() throws InterruptedException {
 		for (int i = 0; i < playerCount; i++){
+			System.out.println("Round # " + roundNumber++);
 			nextTurn(i); 
 		}	
 		return false; 

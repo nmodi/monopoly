@@ -56,14 +56,14 @@ public class PropertySpace extends Space implements Improvable, Ownable {
 		{
 			if(!owner.equals(Board.getBanker()))
 			{
-				if(Game.DEBUG_MODE) { System.out.println("#> " + getDeed().getName() + " owner is a player"); }
+				if(Game.getDebugMode()) { System.out.println("#> " + getDeed().getName() + " owner is a player"); }
 //				player.setWealth(chargeRent() * -1);
 //				owner.setWealth(chargeRent());
 				player.setWealth(-10);
 				owner.setWealth(10);
 			} else if (owner.equals(Board.getBanker()))
 			{
-				if(Game.DEBUG_MODE) { System.out.println("#> "+ getDeed().getName() + " owner is banker"); }
+				if(Game.getDebugMode()) { System.out.println("#> "+ getDeed().getName() + " owner is banker"); }
 			}
 		}
 	}

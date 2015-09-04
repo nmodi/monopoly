@@ -38,14 +38,12 @@ public class PlayerToken extends Token {
 		if (Game.getDebugMode()){			
 			System.out.println("magnitude " + magnitude);
 			System.out.println("new position (nonmod)" + newPosition);
-		}
-		if (newPosition > Board.TOTAL_NUMBER_OF_SPACES) {
-			newPosition = newPosition % Board.TOTAL_NUMBER_OF_SPACES; 
-			if (Game.getDebugMode()){			
+			
+			if (newPosition > Board.TOTAL_NUMBER_OF_SPACES) {
 				System.out.println("new position (mod)" + newPosition);
 			}
 		}
-		setPosition(newPosition); 
+		setPosition(newPosition % Board.TOTAL_NUMBER_OF_SPACES); 
 		return false; 
 	}
 }
