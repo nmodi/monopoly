@@ -42,7 +42,9 @@ public class Game {
 		while(!gameWon){
 			System.out.println("Round # " + roundNumber++);
 			gameWon = nextRound(); 	
-//			endGame(); 
+			if (gameWon) {
+				endGame(); 
+			}
 		}
 	}
 	
@@ -53,8 +55,13 @@ public class Game {
 	 * @throws InterruptedException 
 	 */
 	private static boolean nextRound() throws InterruptedException {
-		for (int i = 0; i < playerCount; i++){
-			gameWon = nextTurn(i); 
+		for (int i = 0; i < board.getPlayers().size(); i++){
+			nextTurn(i); 
+			if (board.getPlayers().size() == 1) {
+				System.out.println(board.getPlayers().get(0).getName() + " is the last person standing.");
+				System.out.println(board.getPlayers().get(0).getName() + " has won the game!!"); 
+				return true;
+			}
 		}	
 		return false; 
 	}
@@ -65,8 +72,7 @@ public class Game {
 	 * @return 
 	 * @throws InterruptedException 
 	 */
-	private static boolean nextTurn(int playerIndex) throws InterruptedException {
-
+	private static boolean nextTurn(int playerIndex) throws InterruptedException {		
 		Player currentPlayer = board.getPlayers().get(playerIndex); 
 		String currentPlayerName = currentPlayer.getName(); 
 		System.out.println(currentPlayerName + " is up next!");
@@ -86,24 +92,31 @@ public class Game {
 		
 		int oldPosition = currentPlayer.getPlayerToken().getPosition(); 
 		boolean passedGo = incrementPosition(total, currentPlayer.getPlayerToken());
-		System.out.println(currentPlayer.getName() +" moved from " + oldPosition + " to " + currentPlayer.getPlayerToken().getPosition() + ".");  
+		String oldPositionName = board.getSpaces().get(oldPosition).getName(); 
+		if (Game.getDebugMode()) {
+			System.out.println("- moved from " + oldPosition + " to " + currentPlayer.getPlayerToken().getPosition() + ".");  
+		}
 
-		
 		ArrayList<Space> spaces = board.getSpaces(); 
 		Space currentSpace = spaces.get(currentPlayer.getPlayerToken().getPosition()); 
 
-		System.out.println(currentPlayer.getName() + " landed on " + currentSpace.getName());
-		currentSpace.onLanding(currentPlayer);
+		System.out.println("- moved from " + oldPositionName + " and landed on " + currentSpace.getName());
+		boolean playerHasLostGame = currentSpace.onLanding(currentPlayer);
+		
+		if (playerHasLostGame) {
+			System.out.println("- wasn't able to afford " + currentSpace.getName() + " (Wealth: " + currentPlayer.getWealth() + ").");
+			System.out.println(currentPlayerName + " has gone bankrupt.\nBye " + currentPlayerName + "!\n");
+			board.getPlayers().remove(playerIndex); 
+			return true; 
+		}
 		
 		if (passedGo) {
-			System.out.println(currentPlayerName + " passed Go and collects " + Board.DEFAULT_PASS_GO_REWARD);
+			System.out.println("- passed Go and collects " + Board.DEFAULT_PASS_GO_REWARD);
 			currentPlayer.adjustWealth(Board.DEFAULT_PASS_GO_REWARD);
 		}
 		
-		System.out.println(currentPlayerName + " now has $" + currentPlayer.getWealth());
+		System.out.println("- now has $" + currentPlayer.getWealth());
 		
-		// check what type of space it is 
-		// if it's go, collect 200 
 		// if it's go to jail, go to jail
 		// if it's free parking, do nothing
 		// if it's card draw space, draw card 
@@ -123,7 +136,7 @@ public class Game {
 		Die die = board.getDie(); 
 		int[] rolls = die.roll(); 
 		int rollTotal = rolls[0]+rolls[1]; 
-		System.out.println(currentPlayer.getName() + " rolled [" + rolls[0] + "] & [" + rolls[1] + "] (Total:" + rollTotal + ")" );
+		System.out.println("- rolled [" + rolls[0] + "] & [" + rolls[1] + "] (Total: " + rollTotal + ")" );
 		if (rolls[0] == rolls[1]){
 			System.out.println("Rolled doubles!");
 			boolean shouldGoToJail = currentPlayer.rolledDoubles();

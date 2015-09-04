@@ -62,7 +62,7 @@ public class PropertySpace extends Space implements Improvable, Ownable {
 	}
 
 	@Override
-	public void onLanding(Player player) {
+	public boolean onLanding(Player player) {
 		Player owner = getDeed().getOwner();
 		//check owner
 		//if player is not owner
@@ -80,7 +80,7 @@ public class PropertySpace extends Space implements Improvable, Ownable {
 				player.adjustWealth(calculateRentCharge() * -1);
 				owner.adjustWealth(calculateRentCharge());
 				
-				System.out.println(player.getName() + " paid " + calculateRentCharge() + " in rent to " + owner.getName());
+				System.out.println("- paid $" + calculateRentCharge() + " in rent to " + owner.getName());
 				
 				if(Game.DEBUG_MODE) { System.out.println("#> " + getDeed().getName() + " owner is a player"); }
 
@@ -88,17 +88,24 @@ public class PropertySpace extends Space implements Improvable, Ownable {
 			{
 				// purchase property 
 				long purchasePrice = getDeed().getPurchasePrice(); 
+				
+				if (purchasePrice > player.getWealth()) {
+					return true; 
+				}
+				
 				player.adjustWealth(purchasePrice*-1);
 				
 				player.addOwnedDeeds(getDeed());
 				owner.removeDeed(getDeed()); 
 				getDeed().setOwner(player);
 				
-				System.out.println(player.getName() + " purchased " + getDeed().getName() + " from the Bank");
+				System.out.println("- purchased " + getDeed().getName() + " from the Bank for $" + purchasePrice);
 				
 				if(Game.getDebugMode()) { System.out.println("#> "+ getDeed().getName() + " owner is banker"); }
 			}
 		}
+		
+		return false; 
 	}
 
 	@Override
