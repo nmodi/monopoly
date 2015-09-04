@@ -8,7 +8,7 @@ public class Game {
 	private static Board board;
 	private static Bank bank;
 	private static boolean gameWon = false; 
-	public static boolean DEBUG_MODE = true; 
+	public static boolean DEBUG_MODE = false; 
 	
 	private static int playerCount; 
 	
@@ -87,12 +87,20 @@ public class Game {
 		int oldPosition = currentPlayer.getPlayerToken().getPosition(); 
 		boolean passedGo = incrementPosition(total, currentPlayer.getPlayerToken());
 		System.out.println(currentPlayer.getName() +" moved from " + oldPosition + " to " + currentPlayer.getPlayerToken().getPosition() + ".");  
+
 		
 		ArrayList<Space> spaces = board.getSpaces(); 
 		Space currentSpace = spaces.get(currentPlayer.getPlayerToken().getPosition()); 
-		
-		currentSpace.onLanding(currentPlayer);
+
 		System.out.println(currentPlayer.getName() + " landed on " + currentSpace.getName());
+		currentSpace.onLanding(currentPlayer);
+		
+		if (passedGo) {
+			System.out.println(currentPlayerName + " passed Go and collects " + Board.DEFAULT_PASS_GO_REWARD);
+			currentPlayer.adjustWealth(Board.DEFAULT_PASS_GO_REWARD);
+		}
+		
+		System.out.println(currentPlayerName + " now has $" + currentPlayer.getWealth());
 		
 		// check what type of space it is 
 		// if it's go, collect 200 
@@ -149,7 +157,7 @@ public class Game {
 			}
 		}
 		token.setPosition(newPosition % Board.TOTAL_NUMBER_OF_SPACES);
-		if (newPosition > Board.TOTAL_NUMBER_OF_SPACES ) { 
+		if (newPosition >= Board.TOTAL_NUMBER_OF_SPACES ) { 
 			return true; 
 		}
 		return false; 

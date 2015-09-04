@@ -19,7 +19,7 @@ public class Board {
 	private final String TOKENS_JSON = "tokens.json";
 	private final String PLAYERS_JSON = "players.json";
 	
-	private static BankerPlayer banker;
+	private BankerPlayer banker;
 	
 	private ArrayList<Player> players;
 	private Die die;
@@ -29,6 +29,7 @@ public class Board {
 	private ArrayList<PlayerToken> playerTokens;
 	
 	public static int TOTAL_NUMBER_OF_SPACES; 
+	public static int DEFAULT_PASS_GO_REWARD = 200; 
 	
 	public Board() {
 		initPlayers();
@@ -69,7 +70,7 @@ public class Board {
 				e.printStackTrace();
 		}
 		
-		setBanker(new BankerPlayer("Banker"));
+		banker = BankerPlayer.getBanker(); 
 	}
 	
 	/**
@@ -233,12 +234,12 @@ public class Board {
 	public ArrayList<Space> getSpaces() { return spaces; } 
 	public ArrayList<PlayerToken> getTokens() { return playerTokens; }
 
-	public static BankerPlayer getBanker() {
+	public BankerPlayer getBanker() {
 		return banker;
 	}
 
-	public static void setBanker(BankerPlayer banker) {
-		Board.banker = banker;
+	public void setBanker(BankerPlayer banker) {
+		this.banker = banker;
 	} 
 
 }

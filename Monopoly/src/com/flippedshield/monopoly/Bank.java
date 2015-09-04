@@ -72,6 +72,8 @@ public class Bank {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
+		BankerPlayer.getBanker().setOwnedDeeds(deeds);
 	}
 	
 	public ArrayList<Deed> getDeeds(){ return deeds; } 
