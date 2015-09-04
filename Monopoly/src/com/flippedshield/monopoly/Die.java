@@ -35,6 +35,11 @@ public class Die {
 		int[] rolledDice = new int[numDiceRolled]; 		
 		for (int i = 0; i < numDiceRolled; i++){
 			rolledDice[i] = rollSingleDie(); 
+			try {
+				Thread.sleep(250);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		return rolledDice;
 	}

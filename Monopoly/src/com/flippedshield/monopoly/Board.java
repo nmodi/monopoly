@@ -1,10 +1,10 @@
 package com.flippedshield.monopoly;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -12,13 +12,14 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Board {
+//	private static Board instance; 
 	
-	private static final String PROPERTIES_FILE = "properties.txt"; 
-	private static final String CARD_INFORMATION_JSON = "cardInformation.json"; 
-	private static final String TOKENS_JSON = "tokens.json";
-	private static final String PLAYERS_JSON = "players.json";
+
+	private final String CARD_INFORMATION_JSON = "cardInformation.json"; 
+	private final String TOKENS_JSON = "tokens.json";
+	private final String PLAYERS_JSON = "players.json";
 	
-	private static BankerPlayer banker;
+	private BankerPlayer banker;
 	
 	private ArrayList<Player> players;
 	private Die die;
@@ -27,8 +28,10 @@ public class Board {
 	private ArrayList<Space> spaces; 
 	private ArrayList<PlayerToken> playerTokens;
 	
-	public Board()
-	{
+	public static int TOTAL_NUMBER_OF_SPACES; 
+	public static int DEFAULT_PASS_GO_REWARD = 200; 
+	
+	public Board() {
 		initPlayers();
 		die = new Die();
 		initBigFunCards();
@@ -39,9 +42,19 @@ public class Board {
 			e.printStackTrace();
 		} 
 		initTokens(); 
+		giveTokensToPlayers(); 
 	}
 	
-	private void initPlayers()
+	private void giveTokensToPlayers(){
+		Random r = new Random(); 	
+		
+		for (int i = 0; i < players.size(); i++) {
+			int index = r.nextInt(playerTokens.size()); 
+			players.get(i).setPlayerToken(playerTokens.remove(index));  
+		}
+	}
+		
+	private  void initPlayers()
 	{
 		players = new ArrayList<Player>(); 
 		JSONParser parser = new JSONParser(); 
@@ -57,7 +70,7 @@ public class Board {
 				e.printStackTrace();
 		}
 		
-		setBanker(new BankerPlayer("Banker"));
+		banker = BankerPlayer.getBanker(); 
 	}
 	
 	/**
@@ -65,23 +78,81 @@ public class Board {
 	 * @throws IOException
 	 */
 	private void initSpaces() throws IOException{
+//		spaces = new ArrayList<Space>(40);
+//		BufferedReader br = new BufferedReader(new FileReader(PROPERTIES_FILE));
+//		try { 
+//			String line = br.readLine(); 
+//			while (line != null) {
+//				spaces.add(new Space(line));
+//				line = br.readLine(); 
+//			}	
+//		} finally {
+//			br.close(); 
+//		}
+		
+		
 		spaces = new ArrayList<Space>(40);
-		BufferedReader br = new BufferedReader(new FileReader(PROPERTIES_FILE));
-		try { 
-			String line = br.readLine(); 
-			while (line != null) {
-				spaces.add(new Space(line));
-				line = br.readLine(); 
-			}	
-		} finally {
-			br.close(); 
+		ArrayList<Deed> properties = Game.getBank().getDeeds();
+		int i = 0;
+		int j = 0;
+		spaces.add(new GoSpace("Go Space"));
+		spaces.add(new PropertySpace(properties.get(i++))); 
+		spaces.add(new CardSpace("Contingency Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new FeeSpace("Tax"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new CardSpace("Big Fun Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		
+		spaces.add(new JailSpace("Jail/Visiting"));
+		for(j = 0; j < 6; j++)
+		{
+			spaces.add(new PropertySpace(properties.get(j)));
 		}
+		i += j;
+		
+		spaces.add(new CardSpace("Contingency Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		
+		spaces.add(new FreeParkingSpace("Free Parking"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new CardSpace("Big Fun Card"));
+		for(j = 0; j < 7; j++)
+		{
+			spaces.add(new PropertySpace(properties.get(j)));
+		}
+		i+=j;
+		
+		spaces.add(new GoToJailSpace("Go To Jail"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new CardSpace("Contingency Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new PropertySpace(properties.get(i++)));//should be RR
+		spaces.add(new CardSpace("Big Fun Card"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		spaces.add(new FeeSpace("Tax"));
+		spaces.add(new PropertySpace(properties.get(i++)));
+		
+		
+		
+		
+		for(Space s : spaces)
+		{
+			System.out.println(" + " + s.getName());
+		}
+		System.out.println("SIZE " + spaces.size());
+		
+		TOTAL_NUMBER_OF_SPACES = spaces.size(); 
 	}
 	
 	/**
 	 * Creates big fun card list and fills it with cards
 	 */
-	private void initBigFunCards()
+	private  void initBigFunCards()
 	{
 		bigFunCards = new ArrayList<Card>();
 		
@@ -109,7 +180,7 @@ public class Board {
 	/**
 	 * Creates contingency card list and fills it with cards
 	 */
-	private void initContingencyCards()
+	private  void initContingencyCards()
 	{
 		contingencyCards = new ArrayList<Card>();
 		
@@ -137,7 +208,7 @@ public class Board {
 	/**
 	 * Creates list of Tokens and initializes it from TOKENS_JSON file 
 	 */
-	private void initTokens(){
+	private  void initTokens(){
 		playerTokens = new ArrayList<PlayerToken>(); 
 		JSONParser parser = new JSONParser(); 
 		try {
@@ -163,12 +234,12 @@ public class Board {
 	public ArrayList<Space> getSpaces() { return spaces; } 
 	public ArrayList<PlayerToken> getTokens() { return playerTokens; }
 
-	public static BankerPlayer getBanker() {
+	public BankerPlayer getBanker() {
 		return banker;
 	}
 
-	public static void setBanker(BankerPlayer banker) {
-		Board.banker = banker;
+	public void setBanker(BankerPlayer banker) {
+		this.banker = banker;
 	} 
 
 }

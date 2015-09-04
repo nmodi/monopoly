@@ -1,6 +1,7 @@
 package com.flippedshield.monopoly.tests;
 
-import java.lang.reflect.Field;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -43,16 +44,17 @@ public class WhenASpaceIsAFeeSpace {
 	
 	@Test
 	public void shouldHaveNotHaveATokenList() throws ClassNotFoundException, NoSuchFieldException, SecurityException {
-		Class space = Class.forName("com.flippedshield.monopoly");
+//		Class space = Class.forName("com.flippedshield.monopoly");
+//		
+//		for(FeeSpace p : feeSpaces)
+//		{
+//			thrown.expect(NoSuchFieldException.class);
+//			thrown.expect(SecurityException.class);
+//			
+//			Field field = space.getField("buildingTokenList");
+//		}
 		
-		
-		for(FeeSpace p : feeSpaces)
-		{
-			thrown.expect(NoSuchFieldException.class);
-			thrown.expect(SecurityException.class);
-			
-			Field field = space.getField("buildingTokenList");
-		}
+		fail("not yet implemented");
 	}
 
 }

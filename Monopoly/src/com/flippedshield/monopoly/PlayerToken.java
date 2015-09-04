@@ -15,16 +15,18 @@ public class PlayerToken extends Token {
 	public PlayerToken(JSONObject next) {
 		setImprisonment(false); 
 		setName(next.get("name").toString());
-		setSymbol(next.get("symbol").toString().charAt(0));
+		setSymbol(next.get("symbol").toString());
 	}
 
 	/*
 	 * === GETTERS AND SETTERS ======================================
 	 */
-	public boolean getImprisonmentStatus() { return this.isImprisoned; }
+	public boolean checkIfJailed() { return this.isImprisoned; }
 	
 	public void setImprisonment(boolean isImprisoned)
 	{
 		this.isImprisoned = isImprisoned;
 	}
+
+
 }

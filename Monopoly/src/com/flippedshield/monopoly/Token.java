@@ -9,7 +9,7 @@ public abstract class Token {
 	
 	private int position;
 	private String name; 
-	private char symbol;
+	private String symbol;
 	
 
 	/*
@@ -19,8 +19,8 @@ public abstract class Token {
 	public String getName() { return name; } 
 	public int getPosition() { return this.position; }
 	public void setPosition(int position) { this.position = position; }
-	public char getSymbol() { return this.symbol; }
-	public void setSymbol(char symbol) { this.symbol = symbol; }
+	public String getSymbol() { return this.symbol; }
+	public void setSymbol(String symbol) { this.symbol = symbol; }
 	
 }
 //
