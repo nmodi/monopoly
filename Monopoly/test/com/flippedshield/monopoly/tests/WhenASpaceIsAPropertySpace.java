@@ -39,7 +39,7 @@ public class WhenASpaceIsAPropertySpace {
 	}
 
 	@Test
-	public void shouldHaveAnEmptyBuildingTokenList() {
+	public void shouldHaveAnNotHaveAnyBuildingsOrKeyToTheCity() {
 		PropertySpace property;
 		
 		

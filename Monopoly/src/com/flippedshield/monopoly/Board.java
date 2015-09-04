@@ -140,11 +140,14 @@ public class Board {
 		
 		
 		
-		for(Space s : spaces)
+		if(Game.DEBUG_MODE)
 		{
-			System.out.println(" + " + s.getName());
+			for(Space s : spaces)
+			{
+				System.out.println(" + " + s.getName());
+			}
+			System.out.println("SIZE " + spaces.size());
 		}
-		System.out.println("SIZE " + spaces.size());
 		
 		TOTAL_NUMBER_OF_SPACES = spaces.size(); 
 	}
