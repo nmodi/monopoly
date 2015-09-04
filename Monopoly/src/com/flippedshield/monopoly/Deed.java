@@ -15,6 +15,7 @@ public class Deed {
 	private long threeBlock;
 	private long fourBlock;
 	private long keyToCity;
+	private long purchasePrice; 
 	
 	public Deed(
 			String name, String owner, String color, long mortgage, long blockCost, 
@@ -34,8 +35,13 @@ public class Deed {
 		setThreeBlock(threeBlock);
 		setFourBlock(fourBlock);
 		setKeyToCity(keyToCity);
+		setPurchasePrice(mortgage); 
 	}
 	
+	private void setPurchasePrice(long mortgage) {
+		this.purchasePrice = mortgage * 2; 
+	}
+
 	public Deed()
 	{
 		
@@ -51,7 +57,7 @@ public class Deed {
 	{
 		if(owner.equalsIgnoreCase("bank"))
 		{
-			this.owner = Board.getBanker();
+			this.owner = BankerPlayer.getBanker();
 			
 		} else
 		{
@@ -163,5 +169,9 @@ public class Deed {
 
 	public void setKeyToCity(long keyToCity) {
 		this.keyToCity = keyToCity;
+	}
+
+	public long getPurchasePrice() {
+		return purchasePrice; 
 	}
 }

@@ -13,13 +13,15 @@ public class Player {
 
 	private String name;
 	private int consecutiveDoubles;
-	private int wealth;
+	private long wealth;
 	private int jailCards;
 	private int turnsInJail; 
 	private ArrayList<Deed> ownedDeeds;
 	private PlayerToken token; 
 	
 	private static final int DEFAULT_STARTING_WEALTH = 500; 
+	
+	public Player(){}
 	
 	/**
 	 * Creates player using JSON player object
@@ -82,9 +84,9 @@ public class Player {
 		consecutiveDoubles++; 
 	}
 
-	public int getWealth() { return wealth; }
+	public long getWealth() { return wealth; }
 	
-	public void setWealth(int wealth) {
+	public void setWealth(long wealth) {
 		this.wealth = wealth;
 	}
 
@@ -147,5 +149,18 @@ public class Player {
 	
 	private void setTurnsInJail(int turns) {
 		turnsInJail = turns; 
+	}
+	
+	public void adjustWealth(long amount){
+		setWealth(getWealth() + amount);
+	}
+
+	public void addOwnedDeeds(Deed deed) {
+		getOwnedDeeds().add(deed); 
+	}
+
+	public void removeDeed(Deed deed) {
+		getOwnedDeeds().remove(deed); 
+		
 	}
 }
