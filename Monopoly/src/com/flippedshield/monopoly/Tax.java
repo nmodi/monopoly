@@ -7,8 +7,8 @@ public class Tax extends Space {
 	}
 
 	@Override
-	public void onLanding(Player player) {
-		
+	public boolean onLanding(Player player) {
+		return false; 
 	}
 
 	@Override

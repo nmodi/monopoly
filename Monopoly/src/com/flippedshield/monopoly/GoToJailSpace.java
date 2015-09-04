@@ -9,6 +9,9 @@ public class GoToJailSpace extends Space {
 
 	@Override
 	public boolean onLanding(Player player) {
+		player.getPlayerToken().setImprisonment(true);
+		player.getPlayerToken().setPosition(Board.JAIL_INDEX);
+		System.out.println(player.getName() + " is going to jail!");
 		return false; 
 	}
 

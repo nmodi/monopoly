@@ -18,6 +18,7 @@ public class Board {
 	private final String CARD_INFORMATION_JSON = "cardInformation.json"; 
 	private final String TOKENS_JSON = "tokens.json";
 	private final String PLAYERS_JSON = "players.json";
+	public static int JAIL_INDEX; 
 	
 	private BankerPlayer banker;
 	
@@ -107,6 +108,7 @@ public class Board {
 		spaces.add(new PropertySpace(properties.get(i++)));
 		
 		spaces.add(new JailSpace("Jail / Visiting"));
+		JAIL_INDEX = spaces.size(); 
 		for(j = 0; j < 6; j++)
 		{
 			spaces.add(new PropertySpace(properties.get(j)));
