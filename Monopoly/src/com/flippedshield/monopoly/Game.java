@@ -91,6 +91,8 @@ public class Game {
 		ArrayList<Space> spaces = board.getSpaces(); 
 		Space currentSpace = spaces.get(currentPlayer.getPlayerToken().getPosition()); 
 		
+		currentSpace.onLanding(currentPlayer);
+		System.out.println(currentPlayer.getName() + " landed on " + currentSpace.getName());
 		
 		// check what type of space it is 
 		// if it's go, collect 200 
