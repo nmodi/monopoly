@@ -33,7 +33,7 @@ public class FeeSpace extends Space implements Ownable {
 	}
 
 	@Override
-	public int calculateRent() {
+	public int calculateRentCharge() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
